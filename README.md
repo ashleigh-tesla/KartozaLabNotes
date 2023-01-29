@@ -17,9 +17,9 @@
 - Continued with the *QGIS* Coursework
 - Signed up with ***Open Street Map*** and then started contributing to the OSM by digitizing some features 
 - Edited the OSM by:
->> adding missing features
->> commenting present features 
->> tagging some features 
+> 1. adding missing features
+> 2. commenting present features 
+> 3. tagging some features 
 - Forked the Kartoza Handbook on GitHub
 - Attended the Intern Hangout Meeting at the last weekday
 - Had a Mapping Party to dive deep into cartography, and learn new tricks about developing and designing _maps_
