@@ -14,10 +14,22 @@
 ### Week 2
 
 - Polished and then submitted the final **Simple Africa Map**
+
+![Simple Scale Africa Map!](/pics/Simple%20Africa%20Map.png "San Juan Mountains")
+
+![Simple Scale Africa Map!](/pics/Simple%20Africa%20Map.png "San Juan Mountains")
+
+![Simple Scale Africa Map!](/pics/Simple%20Africa%20Map.png "San Juan Mountains")
+
+![Simple Scale Africa Map!](/pics/Simple%20Africa%20Map.png "San Juan Mountains")
+
 - Continued with the *QGIS* Coursework
 - Signed up with ***Open Street Map*** and then started contributing to the OSM by digitizing some features 
 - Edited the OSM by:
-> 1. adding missing features
+ 1. adding missing features
+ - ![Open Street Map Area Edit!](/pics/Open Street Map Area Edit.jpeg  "Open Street Map Area Edit")
+ - ![Open Street Map Line Edit!](/pics/Open Street Map Line Edit.jpeg "Open Street Map Line Edit")
+ - ![Open Street Map Point Edit!](/pics/Open Street Map Point Edit.jpeg "Open Street Map Point Edit")
 > 2. commenting present features 
 > 3. tagging some features 
 - Forked the Kartoza Handbook on GitHub
