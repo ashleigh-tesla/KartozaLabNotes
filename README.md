@@ -7,8 +7,11 @@
 1. Joined _Introduction to the Kartoza Internship Session_
 2. Installed all Suggested Essential Software
 3. Introduction to *QGIS* Course
-4. Started the **Simple Africa Map** project
-5. Attended the Week's Intern Hangout Meeting to get some notes, advice, and corrections required to amend and improve the Final Map
+4. Start the **Simple Africa Map** project
+
+ > Follow the ![QGIS Road to Nerdvana Episode 15: Making a Small Scale Map of Africa](https://www.youtube.com/watch?v=LJIiZfA7Iio "Making a Small Map of Africa Youtube Video")
+
+5. Attend the Week's Intern Hangout Meeting to get some notes, advice, and corrections required to amend and improve the Final Map
 
 
 ### Week 2
@@ -17,8 +20,8 @@
 
 ![Simple Scale Africa Map!](/pics/Simple%20Africa%20Map.png "Simple Africa Map")
 
-- Continued with the *QGIS* Coursework
-- Signed up with ***Open Street Map*** and then started contributing to the OSM by digitizing some features 
+- Continuing with the *QGIS* Coursework
+- Signing up with ***Open Street Map Organization*** and joining the community helps start contributing to the OSM by digitizing some map features 
 - Edited the OSM by:
 > 1. adding missing features
 
@@ -36,12 +39,12 @@
 
 ![Open Street Map Tagging!](/pics/Open%20Street%20Map%20Tag%20Edit.jpeg "Open Street Map Tagging")
 
-- Forked the Kartoza Handbook on GitHub
+- Forking the Kartoza Handbook on GitHub
 
 > ![Forking Kartoza Handbook!](/pics/Screenshot%20Forking%20Kartoza%20Handbook.jpeg  "Kartoza Handbook Forked")
 
-- Attended the Intern Hangout Meeting at the last weekday
-- Had a Mapping Party to dive deep into cartography, and learn new tricks about developing and designing _maps_
+- Get started with *[Markdown](https://www.markdownguide.org/ "Getting Started with Markdown")*
+- Start with *[Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax/ "Markdown Basic Syntax")* then move to *[Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/ "Markdown Extended Syntax")*
 
-
-
+- Attending the Intern Hangout Meeting on Friday helped learn more about GitHub and Markdown
+- Joining a Mapping Party helps to dive deep into cartography, and learn new tricks about developing and designing _maps_
