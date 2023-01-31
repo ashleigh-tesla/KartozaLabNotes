@@ -1,11 +1,26 @@
-# Kartoza Lab Notes
+# Week 1
 
-## Notes I learn from Kartoza (Pty) Ltd 
+## Self-Study and Orientation
 
-### Week 1
+1. Watch the _Introduction to the Kartoza Internship Session_ 
 
-1. Joined _Introduction to the Kartoza Internship Session_
-2. Installed all Suggested Essential Software
+>![Kartoza Interns Introductory Session June 2022](https://www.youtube.com/watch?v=GCn842i1A3E&t=1196s "Kartoza Interns Introductory Session Video")
+
+2. Install all Suggested Essential Software
+
+> QGIS
+> SLACK
+> DRAW.IO
+> OBS
+> SYNFIG
+> PEEK
+> INKSCAPE
+> BITWARDEN
+> QPROMPT
+> VS CODE
+> LIBRE OFFICE
+> PostgreSQL and PostGIS
+
 3. Introduction to *QGIS* Course
 4. Start the **Simple Africa Map** project
 
@@ -14,15 +29,29 @@
 5. Attend the Week's Intern Hangout Meeting to get some notes, advice, and corrections required to amend and improve the Final Map
 
 
-### Week 2
+# Week 2
 
-- Polished and then submitted the final **Simple Africa Map**
+## Project Assignment
+
+- The final **Simple Africa Map** should look like the one below
 
 ![Simple Scale Africa Map!](/pics/Simple%20Africa%20Map.png "Simple Africa Map")
 
 - Continuing with the *QGIS* Coursework
-- Signing up with ***Open Street Map Organization*** and joining the community helps start contributing to the OSM by digitizing some map features 
-- Edited the OSM by:
+- Signing up with ***Open Street Map Organization*** and joining the community gets one ready to start contributing to the OSM by digitizing some map features 
+
+Open Street Map:
+
+1. OpenStreetMap is a free, open geographic database updated and maintained by a community of volunteers via open collaboration. Contributors collect data from surveys, trace from aerial imagery and also import from other freely licensed geodata sources.
+2. Login to account / Sign Up to the Open Street Map organization for an Account 
+3. Use search bar to navigate to AOI.
+4. You can edit the Map with iD (in-browser editor) or Remote Control (JOSM, Potlatch, Merkaartor) 
+5. If editing polygons, choose area and trace the boundaries and add a tag. Insert ‘Yes’ if you do not know what 
+kind of building the digitised building is, otherwise select from the drop down.
+6. Save your work every 10 to 20 edits with a meaningful name
+
+
+- Edit the OSM by:
 > 1. adding missing features
 
  >> ![Open Street Map Area Edit!](/pics/Open%20Street%20Map%20Area%20Edit.jpeg  "Open Street Map Area Edit")
@@ -39,18 +68,36 @@
 
 ![Open Street Map Tagging!](/pics/Open%20Street%20Map%20Tag%20Edit.jpeg "Open Street Map Tagging")
 
-- Forking the Kartoza Handbook on GitHub
+GitHub Exercise:
+
+- Fork the Kartoza Handbook on GitHub as in the image below (You Press Fork)
 
 > ![Forking Kartoza Handbook!](/pics/Screenshot%20Forking%20Kartoza%20Handbook.jpeg  "Kartoza Handbook Forked")
+
+- Sign up and connect your Visual Studio Code with your GitHub Account
+- Clone your Forked Kartoza Handbook Repo
+- Add or edit the *Cartography Guidelines* with the [Markdown](https://www.markdownguide.org)
+- To view Markdown easily, install Markdown All In One and use Ctrl+Shift+V or ‘preview’ icon to see the changes you added in a Markdown Format
+- Save work and make a pull request     
+
+All About Markdown
 
 - Get started with *[Markdown](https://www.markdownguide.org/ "Getting Started with Markdown")*
 - Start with *[Markdown Basic Syntax](https://www.markdownguide.org/basic-syntax/ "Markdown Basic Syntax")* then move to *[Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/ "Markdown Extended Syntax")*
 
-- Attending the Intern Hangout Meeting on Friday helped learn more about GitHub and Markdown
-- Joining a Mapping Party helps to dive deep into cartography, and learn new tricks about developing and designing _maps_
+### Intern Hangout Meeting on Friday
+
+1. Make Lab Notes for every exercise as we go, specifically focusing on steps followed, resources used and 
+corrections made.
+2. A push request is only done to your forked repository, not the original upstream repository. You can only fetch updates from or submit changes to the original repository with pull requests.
+3. Extensions to Visual Studio Code include: Markdown All-In-One, Spell Check
+
+### Mapping Party
+
+- Joining a Mapping Party helps one to dive deep into cartography, and learn new tricks about developing and designing _maps_
 
 
-### Glossary
+# Glossary
 
 **QGIS**
 
@@ -98,7 +145,7 @@ __Terminology__
 
 ***Index*** : The working or staging area of Git files that have been changed, added and deleted will be staged within the index until you are ready to commit the files. To see what is set in your Git index , run “git status” within your repository. The green files are staged and ready to commit, whereas the red files have not yet been added to staging for the next commit.
 
-***Master / Main*** : It is the default primary branch of all repositories, all committed and accepted changes should be merged on the master branch. You can work directly from the master branch, or create other branches.
+***Master / Main*** : It is the default primary branch of all repositories, all committed and accepted changes should be merged on the master branch. You can work directly from the main branch, or create other branches.
 
 ***Merge*** : It is Git's way of putting a forked history back together again. The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch.
 
