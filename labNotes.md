@@ -113,9 +113,9 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 ### List of Computer Hardware
 
-- Here are some common individual computer hardware components that you'll often find inside a modern computer. These parts are almost always found inside the computer case, so you won't see them unless you open the computer:
+- Here are some common individual computer hardware components that you'll often find _inside_ a modern computer. These parts are almost always found inside the computer case, so you won't see them unless you open the computer:
 
-1. Motherboard
+1. Motherboard, System Board, & Mainboard
 2. Central Processing Unit (CPU)
 3. Random Access Memory (RAM)
 4. Power Supply Unit (PSU)
@@ -125,7 +125,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 8. Optical disk drive (e.g., BD/DVD/CD drive)
 9. Card reader (SD/SDHC, CF, etc.)
 
-- Common hardware that you might find connected to the outside of a computer, although many tablets, laptops, and netbooks integrate some of these items into their housings:
+- Common hardware that you might find connected to the _outside_ of a computer, although many tablets, laptops, and netbooks integrate some of these items into their housings:
 
 1. Monitor
 2. Keyboard
@@ -153,7 +153,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 12. Tape drive
 13. Zip drive
 
-- The following hardware is referred to as ​network hardware, and various pieces are often part of a home or business network:
+- The following hardware is referred to as _​network hardware,_ and various pieces are often part of a home or business network:
 
 1. Digital modem (e.g., cable modem, DSL modem, etc.)
 2. Router
@@ -166,7 +166,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 - Network hardware isn't as clearly defined as some other types of computer hardware. For example, many home routers will often act as a combination router, switch, and firewall.
 
-- In addition to all the items listed above, there's more computer hardware called auxiliary hardware, of which a computer might have none, or several, of some kinds:
+- In addition to all the items listed above, there's more computer hardware called _auxiliary hardware,_ of which a computer might have none, or several, of some kinds:
 
 1. Fan (CPU, GPU, Case, etc.)
 2. Heat sink
@@ -179,7 +179,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 ### Hardware vs Software
 
-- A computer system isn't complete unless there's also software, which is different than hardware. The software is data that's stored electronically, like an operating system or a video editing tool, which runs on the hardware
+- A computer system isn't complete unless there's also software, which is different than hardware. The software is data that's stored electronically, like an operating system or a video editing tool, which _runs on the hardware_
 - Hardware gets its name due to the fact that it's strict when it comes to modifications, whereas software is more flexible (i.e., you can easily upgrade or change software)
 - Firmware is closely related to hardware and software, too. Firmware is used to tie the two together so that a software program knows how to interface with a piece of hardware
 
