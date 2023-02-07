@@ -22,12 +22,33 @@
 > PostgreSQL and PostGIS
 
 3. Introduction to *QGIS* Course
+
+### [QGIS Community](https://changelog.qgis.org/en/qgis/ 'QGIS Organization')
+
+- QGIS is developed by a team of dedicated volunteers and organisations
+
+- According to [QGIS](https://changelog.qgis.org/en/qgis/ 'Changelog QGIS Organization'), ***QGIS*** is the leading Free and Open Source Desktop GIS. It allows one to create, edit, visualise, analyse and publish geospatial information on Windows, Mac OS, Linux, BSD and Android (via the QField app). We also provide an OGC Web Server application, a web browser client and developer libraries. The QGIS project is under very active development by an enthusiastic and engaged developer community with good mechanisms for help via stack exchange, mailing lists and (optionally) through a global network of commercial support providers. QGIS is a professional GIS application and developer platform. QGIS is built on top of and proud to be itself Free and Open Source Software.
+
+***QGIS Desktop*** : A powerful desktop GIS software to create, edit, visualise, analyse and publish geospatial information.
+
+***QGIS Server & Web Client*** : It publish your QGIS projects and layers as OGC compatible WMS and WFS services.
+
+- QGIS runs on Linux, Unix, Mac OS and Windows and supports numerous vector, raster, and database formats and functionalities.
+
+### Key Features
+
+- QGIS provides a continuously growing number of capabilities provided by core functions and plugins.
+- You can visualize, manage, edit, analyse data, and design maps.
+- ***Interoperability:*** support for numerous file formats and databases as well as web services.
+- ***Customizability:*** freedom to tailor the application to your needs, from custom data input forms to personalized user interfaces and workflows.
+- ***Extensibility:*** a C++ core and Python support provide the framework for everything from quick scripts to novel stand-alone applications based on the QGIS API.
+
 4. By learning QGIS one gets to create, edit, visualize, analyse, and, publish geospatial information
 5. Start the **Simple Africa Map** project
 
  > Follow the [QGIS Road to Nerdvana Episode 15: Making a Small Scale Map of Africa](https://www.youtube.com/watch?v=LJIiZfA7Iio "Making a Small Map of Africa Youtube Video")
 
-5. Attend the Week's Intern Hangout Meeting to get some notes, advice, and corrections required to amend and improve the Final Map
+6. Attend the Week's Intern Hangout Meeting to get some notes, advice, and corrections required to amend and improve the Final Map
 
 
 # Week 2
