@@ -9,21 +9,32 @@
 2. Install all Suggested Essential Software
 
 > QGIS
+ 
 > SLACK
+ 
 > DRAW.IO
+ 
 > OBS
+ 
 > SYNFIG
+ 
 > PEEK
+ 
 > INKSCAPE
+
 > BITWARDEN
+ 
 > QPROMPT
+
 > VS CODE
+
 > LIBRE OFFICE
+
 > PostgreSQL and PostGIS
 
 3. Introduction to *QGIS* Course
 
-### [QGIS Community](https://changelog.qgis.org/en/qgis/ 'QGIS Organization')
+### Reference : [QGIS Community](https://changelog.qgis.org/en/qgis/ 'QGIS Organization')
 
 - QGIS is developed by a team of dedicated volunteers and organisations
 
@@ -46,9 +57,9 @@
 4. By learning QGIS one gets to create, edit, visualize, analyse, and, publish geospatial information
 5. Start the **Simple Africa Map** project
 
- > Follow the [QGIS Road to Nerdvana Episode 15: Making a Small Scale Map of Africa](https://www.youtube.com/watch?v=LJIiZfA7Iio "Making a Small Map of Africa Youtube Video")
+ > Reference : Follow the [QGIS Road to Nerdvana Episode 15: Making a Small Scale Map of Africa](https://www.youtube.com/watch?v=LJIiZfA7Iio "Making a Small Map of Africa Youtube Video")
 
-6. Attend the Week's Intern Hangout Meeting to get some notes, advice, and corrections required to amend and improve the Final Map
+6. Attending the Week's Intern Hangout Meeting helps one get some notes, advice, and corrections required to amend and improve the Final Africa Map
 
 
 # Week 2
@@ -59,10 +70,11 @@
 
 ![Simple Scale Africa Map!](/pics/Simple%20Africa%20Map.png "Simple Africa Map")
 
-- Continuing with the *QGIS* Coursework
-- Signing up with ***Open Street Map Organization*** and joining the community gets one ready to start contributing to the OSM by digitizing some map features 
+- Continuing with the *[QGIS Coursework](https://changelog.qgis.org/en/qgis/lessons/ 'QGIS LESSONS')*
 
-### Open Street Map:
+- Signing up with ***[Open Street Map Organization](https://www.openstreetmap.org/ "OpenStreetMap")*** and joining the community gets one ready to start contributing to the OSM by digitizing some map features 
+
+### Open Street Map
 
 1. OpenStreetMap is a free, open geographic database updated and maintained by a community of volunteers via open collaboration. Contributors collect data from surveys, trace from aerial imagery and also import from other freely licensed geodata sources.
 2. Login to account / Sign Up to the Open Street Map organization for an Account 
@@ -74,28 +86,25 @@ kind of building the digitised building is, otherwise select from the drop down.
 
 
 - Edit the OSM by:
-> 1. adding missing features
 
- >> ![Open Street Map Area Edit!](/pics/Open%20Street%20Map%20Area%20Edit.jpeg  "Open Street Map Area Edit")
- ***Adding the name of an unnamed Place of Worship***
+1. adding missing features
+2. commenting present features
+3. tagging some features
 
- >> ![Open Street Map Line Edit!](/pics/Open%20Street%20Map%20Line%20Edit.jpeg "Open Street Map Line Edit")
- ***Drawing a missing cycle and footpath***
+ adding missing features | commenting present features | tagging some features
+ ----------------------- | --------------------------- | ---------------------
+![Open Street Map Area Edit!](/pics/Open%20Street%20Map%20Area%20Edit.jpeg  "Open Street Map Area Edit") | |
+***Adding the name of an unnamed Place of Worship*** | |
+![Open Street Map Line Edit!](/pics/Open%20Street%20Map%20Line%20Edit.jpeg "Open Street Map Line Edit") | | 
+***Drawing a missing cycle and footpath*** | | 
+![Open Street Map Point Edit!](/pics/Open%20Street%20Map%20Point%20Edit.jpeg "Open Street Map Point Edit") | |
+***Changing the name of a Place of Worship*** | |    
+| | ![Open Street Map Commenting!](/pics/Open%20Street%20Map%20Comment%20Edit.jpeg "Open Street Map Commenting") | |
+| | ***Adding a Note to a Map*** | |
+| | ![Open Street Map Tagging!](/pics/Open%20Street%20Map%20Tag%20Edit.jpeg "Open Street Map Tagging") | |
+| | ***Tagging the name of a Place of Worship*** | |
 
- >> ![Open Street Map Point Edit!](/pics/Open%20Street%20Map%20Point%20Edit.jpeg "Open Street Map Point Edit")
- ***Changing the name of a Place of Worship***
-
-> 2. commenting present features 
-
-![Open Street Map Commenting!](/pics/Open%20Street%20Map%20Comment%20Edit.jpeg "Open Street Map Commenting")
-***Adding a Note to a Map***
-
-> 3. tagging some features 
-
-![Open Street Map Tagging!](/pics/Open%20Street%20Map%20Tag%20Edit.jpeg "Open Street Map Tagging")
-***Tagging the name of a Place of Worship***
-
-### GitHub Exercise:
+### GitHub
 
 - Fork the Kartoza Handbook on GitHub as in the image below (You Press Fork)
 
@@ -105,7 +114,13 @@ kind of building the digitised building is, otherwise select from the drop down.
 - Clone your Forked Kartoza Handbook Repo
 - Add or edit the *Cartography Guidelines* with the [Markdown](https://www.markdownguide.org)
 - To view Markdown easily, install Markdown All In One and use Ctrl+Shift+V or ‘preview’ icon to see the changes you added in a Markdown Format
-- Save work and make a pull request     
+- Save work and make a pull request to the original author
+
+Reference : [Deep dive into GitHub with Charlie](https://www.youtube.com/watch?v=ctmcULgIxms "Watch GitHub Lecture by Charlie")
+
+### Git 
+
+Reference : [Working with Git](https://www.youtube.com/watch?v=p5tWDX6Idhs "Working with Git by Tim")
 
 ### Markdown:
 
