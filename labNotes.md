@@ -84,6 +84,7 @@
 kind of building the digitised building is, otherwise select from the drop down.
 6. Save your work every 10 to 20 edits with a meaningful comment.
 
+### Reference : [GIS COP 21/06/2022 Open Street Map](https://www.youtube.com/watch?v=mik1yMsxbqI&t=148s 'OSM GIS COP')
 
 - Edit the OSM by:
 
@@ -93,16 +94,12 @@ kind of building the digitised building is, otherwise select from the drop down.
 
  adding missing features | commenting present features | tagging some features
  ----------------------- | --------------------------- | ---------------------
-![Open Street Map Area Edit!](/pics/Open%20Street%20Map%20Area%20Edit.jpeg  "Open Street Map Area Edit") | |
-***Adding the name of an unnamed Place of Worship*** | |
+![Open Street Map Area Edit!](/pics/Open%20Street%20Map%20Area%20Edit.jpeg  "Open Street Map Area Edit") | ![Open Street Map Commenting!](/pics/Open%20Street%20Map%20Comment%20Edit.jpeg "Open Street Map Commenting") | ![Open Street Map Tagging!](/pics/Open%20Street%20Map%20Tag%20Edit.jpeg "Open Street Map Tagging")
+***Adding the name of an unnamed Place of Worship*** | ***Adding a Note to a Map*** | ***Tagging the name of a Place of Worship***
 ![Open Street Map Line Edit!](/pics/Open%20Street%20Map%20Line%20Edit.jpeg "Open Street Map Line Edit") | | 
 ***Drawing a missing cycle and footpath*** | | 
 ![Open Street Map Point Edit!](/pics/Open%20Street%20Map%20Point%20Edit.jpeg "Open Street Map Point Edit") | |
 ***Changing the name of a Place of Worship*** | |    
-| | ![Open Street Map Commenting!](/pics/Open%20Street%20Map%20Comment%20Edit.jpeg "Open Street Map Commenting") | |
-| | ***Adding a Note to a Map*** | |
-| | ![Open Street Map Tagging!](/pics/Open%20Street%20Map%20Tag%20Edit.jpeg "Open Street Map Tagging") | |
-| | ***Tagging the name of a Place of Worship*** | |
 
 ### GitHub
 
@@ -142,6 +139,8 @@ corrections made.
 # Week 3
 
 ## Computer Hardware n Software
+
+### Reference : [Computer Firmware](https://www.lifewire.com/computer-hardware-2625895 "Computer Hardware n Software")
 
 Computer hardware refers to the _physical_ components that make up a computer system
 There are many different kinds of hardware that can be installed inside, and connected to the outside, of a computer
@@ -218,6 +217,8 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 - A computer system isn't complete unless there's also software, which is different than hardware. The software is data that's stored electronically, like an operating system or a video editing tool, which _runs on the hardware_
 - Hardware gets its name due to the fact that it's strict when it comes to modifications, whereas software is more flexible (i.e., you can easily upgrade or change software)
 - Firmware is closely related to hardware and software, too. Firmware is used to tie the two together so that a software program knows how to interface with a piece of hardware
+
+### Reference : [Binary and Hexadecimal Numbers explained for Developers](https://www.theserverside.com/tip/Binary-and-hexadecimal-numbers-explained-for-developers 'Binary and Hexadecimal Numbers')
 
 ### Binary and Hexadecimal Numbers
 
