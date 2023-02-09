@@ -1,0 +1,23 @@
+> QGIS
+ 
+> SLACK
+ 
+> DRAW.IO
+ 
+> OBS
+ 
+> SYNFIG
+ 
+> PEEK
+ 
+> INKSCAPE
+
+> BITWARDEN
+ 
+> QPROMPT
+
+> VS CODE
+
+> LIBRE OFFICE
+
+> PostgreSQL and PostGIS

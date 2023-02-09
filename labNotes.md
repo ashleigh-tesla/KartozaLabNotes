@@ -8,29 +8,7 @@
 
 2. Install all Suggested Essential Software
 
-> QGIS
- 
-> SLACK
- 
-> DRAW.IO
- 
-> OBS
- 
-> SYNFIG
- 
-> PEEK
- 
-> INKSCAPE
-
-> BITWARDEN
- 
-> QPROMPT
-
-> VS CODE
-
-> LIBRE OFFICE
-
-> PostgreSQL and PostGIS
+[List of Essential Software](essentialSoftware.md 'Essential Software to be Installed') 
 
 3. Introduction to *QGIS* Course
 
@@ -60,6 +38,7 @@
  > Reference : Follow the [QGIS Road to Nerdvana Episode 15: Making a Small Scale Map of Africa](https://www.youtube.com/watch?v=LJIiZfA7Iio "Making a Small Map of Africa Youtube Video")
 
 6. Attending the Week's Intern Hangout Meeting helps one get some notes, advice, and corrections required to amend and improve the Final Africa Map
+
 
 
 # Week 2
@@ -142,6 +121,7 @@ corrections made.
 - Joining a Mapping Party helps one to dive deep into cartography, and learn new tricks about developing and designing _maps_
 
 
+
 # Week 3
 
 ## Computer Hardware n Software
@@ -182,6 +162,83 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 1. **What are the four main types of computer hardware?** ~ The four primary categories of computer hardware include input devices, output devices, processing devices, and storage devices.
 2. **How do you clean your computer hardware?** ~ Learn how to clean your PC to help extend its life and make it run more efficiently. Always unplug computers prior to cleaning, and only use recommended materials such as lint-free cloths, canned air, and carefully applied isopropyl alcohol.
+
+
+
+# Week 4
+
+## Learning Python Language
+
+### Python Session with Zakki
+
+- Python is a dynamically typed, garbage-collected, high-level, general-purpose programming language. 
+- It supports multiple programming paradigms, including structured, procedural object-oriented and functional programming.
+
+- It can be used in:
+1. Web Development 
+2. Data Science
+3. Tasks Automation
+4. Data Analysis and Visualization
+
+### Indentation
+
+- Its design philosophy emphasizes code readability with the use of significant indentation(1 Tabs == 4 spaces)
+
+### Commenting
+
+1. For putting a comment or commenting out one line of code, put a # (Hashtag) in front of the comment or line of code as shown below
+
+> # Commented Out Statement 
+
+2. For commenting 2 or more lines of code use 2 sets of 3 single quotes ['''] or double quotes ["""] one placed above and the other set placed below the lines of code
+
+>'''
+>First Statement 
+>Second Statement 
+>Third Statement 
+>'''
+
+>"""
+>1st Statement
+>2nd Statement
+>3rd Statement
+>"""
+
+### Variables 
+
+- A variable is used for creating, changing, casting, and storing values
+
+- Python is Case Sensitive for example age , Age and AGE are 3 different variables 
+
+- Types of Casing
+
+1. Camel Casing e.g myVariableName
+2. Pascal Casing e.g MyVariableName
+3. Snake Casing e.g my_variable_name
+
+### Operators 
+
+Operator | Expression
+-------- | ----------
+| * | Multiply |        
+| + | Add |
+| - | Subtract |
+| / | Divide |
+| // | Divide and return the nearest Integer |
+| % | Remainder |
+| -- | Exponent | 
+
+### Conditionals 
+
+- if and elif statements are used 
+
+### Loops
+
+- for and while loops are used e.g range(start, end, step) where start is the beginning, end is the stop, step is the interval 
+
+### Functions
+
+- def func name ()
 
 # Glossary
 
