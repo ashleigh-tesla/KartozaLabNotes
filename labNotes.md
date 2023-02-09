@@ -188,21 +188,29 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 1. For putting a comment or commenting out one line of code, put a # (Hashtag) in front of the comment or line of code as shown below
 
-> # Commented Out Statement 
+\# Commented Out Statement 
 
 2. For commenting 2 or more lines of code use 2 sets of 3 single quotes ['''] or double quotes ["""] one placed above and the other set placed below the lines of code
 
->'''
->First Statement 
->Second Statement 
->Third Statement 
->'''
+'''
 
->"""
->1st Statement
->2nd Statement
->3rd Statement
->"""
+First Statement
+
+Second Statement
+ 
+Third Statement
+
+'''
+
+"""
+
+1st Statement
+
+2nd Statement
+
+3rd Statement
+
+"""
 
 ### Variables 
 
