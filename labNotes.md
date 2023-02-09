@@ -101,6 +101,12 @@ kind of building the digitised building is, otherwise select from the drop down.
 ![Open Street Map Point Edit!](/pics/Open%20Street%20Map%20Point%20Edit.jpeg "Open Street Map Point Edit") | |
 ***Changing the name of a Place of Worship*** | |    
 
+### Humanitarian Openstreet Map (HOT)
+
+- [HOT](https://www.hotosm.org/ 'Humanitarian OpenStreetMap Team') is an international team dedicated to humanitarian action and community development through open mapping.
+- [Humanitarian OpenStreetMap Team](https://www.giscorps.org/hot-projects/#:~:text=Humanitarian%20OpenStreetMap%20Team%20(HOT)%20is,disaster%20response%20and%20sustainable%20development. "HOT") is a global community of volunteers, community leaders, and professionals who work together to create open map data to support disaster response and sustainable development.
+- The HOT Tasking Manager is a mapping tool designed and built for the Humanitarian OpenStreetMap Team's collaborative mapping process in OpenStreetMap. The purpose of the tool is to divide up a mapping project into smaller tasks that can be completed rapidly with many people working on the same overall area.
+
 ### GitHub
 
 - Fork the Kartoza Handbook on GitHub as in the image below (You Press Fork)
@@ -148,69 +154,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 ### List of Computer Hardware
 
-- Here are some common individual computer hardware components that you'll often find _inside_ a modern computer. These parts are almost always found inside the computer case, so you won't see them unless you open the computer:
-
-1. Motherboard, System Board, & Mainboard
-2. Central Processing Unit (CPU)
-3. Random Access Memory (RAM)
-4. Power Supply Unit (PSU)
-5. Video card
-6. Hard Disk Drive (HDD)
-7. Solid-State Drive (SSD)
-8. Optical disk drive (e.g., BD/DVD/CD drive)
-9. Card reader (SD/SDHC, CF, etc.)
-
-- Common hardware that you might find connected to the _outside_ of a computer, although many tablets, laptops, and netbooks integrate some of these items into their housings:
-
-1. Monitor
-2. Keyboard
-3. Mouse
-4. Uninterruptible Power Supply (UPS)
-5. Flash drive
-6. Printer
-7. Speakers
-8. External hard drive
-9. Pen tablet
-
-- Less common individual computer hardware devices, either because these pieces are now usually integrated into other devices or because they've been replaced with newer technology:
-
-1. Sound card
-2. Network Interface Card (NIC)
-3. Expansion card (FireWire, USB, etc.)
-4. Hard drive controller card
-5. Analog modem
-6. Scanner
-7. Projector
-8. Floppy disk drive
-9. Joystick
-10. Webcam
-11. Microphone
-12. Tape drive
-13. Zip drive
-
-- The following hardware is referred to as _​network hardware,_ and various pieces are often part of a home or business network:
-
-1. Digital modem (e.g., cable modem, DSL modem, etc.)
-2. Router
-3. Network switch
-4. Access point
-5. Repeater
-6. Bridge
-7. Print server
-8. Firewall
-
-- Network hardware isn't as clearly defined as some other types of computer hardware. For example, many home routers will often act as a combination router, switch, and firewall.
-
-- In addition to all the items listed above, there's more computer hardware called _auxiliary hardware,_ of which a computer might have none, or several, of some kinds:
-
-1. Fan (CPU, GPU, Case, etc.)
-2. Heat sink
-3. Data cable
-4. Power cable
-5. CMOS battery
-6. Daughterboard
-
-- Some of the devices listed above are called peripheral devices. A peripheral device is a piece of hardware (whether internal or external) that isn't actually involved in the computer's main function. Examples include a monitor, video card, disc drive, and mouse.
+[List of Computer Hardware](computerHardware.md "List of Computer Hardware")
 
 ### Hardware vs Software
 
@@ -222,79 +166,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 ### Binary and Hexadecimal Numbers
 
-- Binary and hexadecimal numbers systems underpin the way modern computer systems work. Low-level interactions with hexadecimal (hex) and binary are uncommon in the world of Java programming, but software developers do occasionally operate at the bit and byte level. The ability to understand how these alternate number systems work is an important skill for a well-rounded software developer to have.
-- Working in hex or binary can feel strange and confusing compared with the base 10 number system used in our everyday world.
-- It's not rocket science, but it requires adjusting how one thinks about numbers and numerals. The following binary and hexadecimal examples explain how these alternatives to the decimal-based number system function and behave.
-
-*The Base 10 Number System*
-
-- Let's begin to understand binary and hexadecimal number systems with a real-world example.
-
-- Consider the numeral 500. In a number system, each digit represents a power of the base. For the base 10 number system, each digit represents a power of 10. Here's how base 10 describes the numeral 500:
-
-hundreds | tens | ones
--------- | ---- | -----
-10² | 10¹ | 10⁰
-5 | 0 | 0
-
-- In the table above, the leftmost column describes units of 100 (10²), the middle column describes units of 10 (10¹) and the rightmost column describes units of one (10⁰). Thus, we can express the value of 500 in base 10 as five units of 100, zero units of 10 and zero units of one, all added together.
-
-*Binary vs. base 10*
-
-- Base 10 is great for humans, but -- for reasons dealing with the on and off energy states -- computers use a base 2 number system. With base 2, or binary, every digit represents a power of 2 and digits are described as only two numbers: 0 and 1. The table below shows the binary-to-decimal-conversion of the value of 500:
-
-Exponent values expressed in decimal | 256 | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 
------------------------------------- | --- | --- | -- | -- | -- | - | - | - | - 
-|                                    | 2⁸ | 2⁷ | 2⁶ | 2⁵ | 2⁴ | 2³ | 2² | 2¹ | 2⁰
-|                                    | 1 | 1 | 1 | 1 | 1 | 0 | 1 | 0 | 0 
-
-**(Note: a unit of 20 = 1)**
-
-- Thus, 500₁₀ = 111110100₂. Or, on a digit by digit basis in base 2: 500 = (256 + 128 + 64 + 32 + 16 + 0 + 4 + 0 + 0)
-
-- There are two more rules to calculate numbers in the binary system. First, in the world of digital computing, each digit in a base 2 number is called a bit. Thus, the following numerals represent three-bit values: 000, 001, 011, 100, 101, 110 and 111. Similarly, eight digits are eight-bit values, such as 10101010, along with 11110000 and 11111111
-- Secondly, bits are grouped together into an organizational unit called a byte. Typically, a byte is a group of eight bits, such as the number 10101010. Grouping eight bits into a byte is conventional, although some technologies such as Protocol Buffers organize a byte as a seven-bit group.
-- Working with bits and bytes using binary notation can be hard just at the visual level alone. Consider the binary expression 1001001011011001 -- that long of a number is hard for anyone's brain to decipher
-
-*Hexadecimal vs. Binary*
-
-- Binary numbers can be intimidatingly long, but hexadecimals are the exact opposite. Hexadecimal numbers describe a number in fewer numbers than both binary and the base 10 number system.
-- The first thing to understand about the hexadecimal system is that it is made up of sixteen numerals: 0 1 2 3 4 5 6 7 8 9 a b c d e f
-- In any number system, each digit represents a power of the base. In the base 10 (decimal) system, the numeral 10 represents one unit of 10¹ and zero units of 10⁰. In the hexadecimal system, the numeral 10 represents a power of the number 16, as shown in the table below:
-
-Exponent values expressed in decimal | 65536 | 4096 | 256 | 16 | 1
------------------------------------- | ----- | ---- | --- | -- | - 
-|                                    | 16⁴   | 16³  | 16² | 16¹ | 16⁰
-
-- Thus, the decimal 10 describes a value of 10 in base 10, while in hexadecimals the numeral 10 converts to 16. We can illustrate the conversion like so:
-
-Exponent values expressed in decimal | 16 | 1
------------------------------------- | -- | - 
-| | 16¹ | 16⁰
-In hexadecimal | 1 | 0
-
-*Decimal vs. hexadecimal*
-
-- Those extra numeric symbols in hexadecimal -- a b c d e f -- help alleviate the confusion with translating decimals, such as numeral 10, into the base 16 number system. The table below describes the correlation of numerical symbols between decimal and hexadecimal.
-
-decimal | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 
-------- | - | - | - | - | - | - | - | - | - | -- | -- | -- | -- | -- | --
-hexadecimal | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | a | b | c | d | e | f
-
-- Thus, going back to the decimal example with 500, we can express it in hexadecimal notation as 1f4. The table below describes the logic behind this correlation:
-
-Exponent values expressed in decimal | 256 | 16 | 1
------------------------------------- | --- | -- | -
-| | 16² | 16¹ | 16⁰
-In hexagonal | 1 | f | 4
-
-- Let's take the example further, and convert each hexadecimal digit to its decimal equivalent and then add them:
-
-(16² x 1) + (16¹ x 15) + (16⁰ x 4)
-
-= (256 + 240 + 4)
-
-= 500
+[Binary and Hexadecimal Numbers](binaryHexadecimalNumbers.md 'Binary and Hexadecimal Numbers')
 
 *Hex and Binary in Action*
 
@@ -306,75 +178,11 @@ In hexagonal | 1 | f | 4
 
 - The ability to interpret and convert binary and hexadecimal number systems is a good tool to have in the toolbox of any DevOps developer. You might not be at the bit and byte level today, but as the scope of computing activities for all types of developers continues to broaden, one day you might.
 
-
-
-
 ### Frequently Asked Questions
 
 1. **What are the four main types of computer hardware?** ~ The four primary categories of computer hardware include input devices, output devices, processing devices, and storage devices.
 2. **How do you clean your computer hardware?** ~ Learn how to clean your PC to help extend its life and make it run more efficiently. Always unplug computers prior to cleaning, and only use recommended materials such as lint-free cloths, canned air, and carefully applied isopropyl alcohol.
 
-
-
-
-
-
-
-
-
 # Glossary
 
-**QGIS**
-
-__Terminology__
-
-***QGIS (Quantum Geographic Information System)*** : A free and open-source cross-platform desktop geographic information system application that supports creating, viewing, editing, printing, analysis, and publishing of geospatial data
-
-***Symbology*** : The use of symbols to represent the features and attributes of a map layer. For example in a layer of trees, small green dots may be used to represent trees. The number of the dots can be varied to symbolize the trees populace. The _symbology_ of a layer is its visual appearance on the map.
-
-***Labels*** : The textual information you can display on vector features or maps. They serve as a medium of communication between the creator of the map and the end user of the map.
-
-***Layers*** :  It provides tools for creating GeoPackage, Shapefile, SpatiaLite, GPX format and Temporary Scratch layers (aka memory layers). since _QGIS_ allows one to create new layers in different formats.
-
-***Raster Data*** : They are a grid of regulary sized pixels. Raster data are good for showing continually varying information. The size of pixels in a raster determines its spatial resolution. Raster images can contain one or more bands, each covering the same spatial area, but containing different information.
-
-***Vector Data*** : The vector model represents the location and shape of geographic features using points, lines and polygons (and for 3D data also surfaces and volumes), while their other properties are included as attributes (often presented as a table in QGIS). It is usually used to store discrete features, like roads and city blocks.
-
-**Git**
-
-__Terminology__
-
-***Git*** : Git is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows.
-
-**GitHub**
-
-__Terminology__
-
-***Branch*** : Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository. You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository
-
-***Stage*** : Implies that you have marked a modified file(s) in its (their) current version to go into your next commit snapshot.
-
-***Commit*** : A commit, or "revision", is an individual change to a file (or set of files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when.
-
-***Pull*** : A pull request let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
-
-***Push*** : The git push command is used to upload local repository content to a remote repository. Pushing is how you transfer commits from your local repository to a remote repo. It's the counterpart to git fetch , but whereas fetching imports commits to local branches, pushing exports commits to remote branches.
-
-***Clone*** : When you clone a repository, you download the repository from GitHub.com to your local machine. Cloning a repository pulls down a full copy of all the repository data that GitHub.com has at that point in time, including all versions of every file and folder for the project.
-
-***Fetch*** : In review, git fetch is a primary command used to download contents from a remote repository. git fetch is used in conjunction with git remote , git branch , git checkout , and git reset to update a local repository to the state of a remote.
-
-***Fork*** : A fork is a copy of a repository that you manage. Forks let you make changes to a project without affecting the original repository. You can fetch updates from or submit changes to the original repository with pull requests.
-
-***Head*** : The _HEAD_ in Git is the pointer to the current branch reference, which is in turn a pointer to the last commit you made or the last commit that was checked out into your working directory. That also means it will be the parent of the next commit you do.
-
-***Index*** : The working or staging area of Git files that have been changed, added and deleted will be staged within the index until you are ready to commit the files. To see what is set in your Git index , run “git status” within your repository. The green files are staged and ready to commit, whereas the red files have not yet been added to staging for the next commit.
-
-***Master / Main*** : It is the default primary branch of all repositories, all committed and accepted changes should be merged on the master branch. You can work directly from the main branch, or create other branches.
-
-***Merge*** : It is Git's way of putting a forked history back together again. The git merge command lets you take the independent lines of development created by git branch and integrate them into a single branch.
-
-***Origin*** : In Git, "origin" is a shorthand name for the remote repository that a project was originally cloned from. More precisely, it is used instead of that original repository's URL - and thereby makes referencing much easier. Note that origin is by no means a 'magical' name, but just a standard convention.
-
-***Remote*** : A remote in Git is a common repository that all team members use to exchange their changes. In most cases, such a remote repository is stored on a code hosting service like GitHub or on an internal server. In contrast to a local repository, a remote typically does not provide a file tree of the project's current state.
-
+[Glossary of Key Terms](glossaryOfKeyTerms.md 'Definition of Key Terminology')
