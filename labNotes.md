@@ -171,6 +171,8 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 ### Python Session with Zakki
 
+[Python Lesson One](https://www.youtube.com/watch?v=szqg1I-XcBM&t=3s 'Python Lesson One by Zakki')
+
 - Python is a dynamically typed, garbage-collected, high-level, general-purpose programming language. 
 - It supports multiple programming paradigms, including structured, procedural object-oriented and functional programming.
 
@@ -201,6 +203,8 @@ Second Statement
 Third Statement
 
 '''
+
+**OR**
 
 """
 
