@@ -169,7 +169,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 ## Learning Python Language
 
-### Python Session with Zakki
+### Python Session (1) with Zakki
 
 [Python Lesson One](https://www.youtube.com/watch?v=szqg1I-XcBM&t=3s 'Python Lesson One by Zakki')
 
@@ -251,6 +251,109 @@ Operator | Expression
 ### Functions
 
 - def func name ()
+
+# Week 5
+
+## Learning Python Language
+
+### Python Session (2) with Zakki
+
+[Python Lesson Two](https://www.youtube.com/watch?v=di-88FH4ius&t=11s 'Python Lesson Two by Zakki')
+
+### Lists n Tuples
+
+Let a = [4, 3, 1, 2]
+
+Let b = [7, 8]
+
+***Please note that the goals in the table below are carried out individually and separately to achieve the desired result.*** 
+***Note the goals are carried out one after the other.***
+
+Goal | Syntax | Result | Notes
+---- | ------ | ------ | -----
+Ascending Order Arrangement | sorted(a) | [1, 2, 3, 4] | Elements are arranged in Ascending Order
+Descending Order Arrangement | sorted(a, reverse=True) | [4, 3, 2, 1] | Elements are arranged in Descending Order
+Element Addition | a.append(5) | [4, 3, 1, 2, 5] | Element is added on the next Index
+Remove Last Element | a.pop() |ans = 2 hence a = [4, 3, 1] | By default the last element is removed
+See First Element | print(a[0]) | 4 | First element is printed **NB: The first element is indexed 0**     
+See Last Element | print(a[-1]) | 2 | Last element is printed **NB: The last element is indexed -1** 
+List Extension | a.extend([5, 6]) | [4, 3, 1, 2, 5, 6] | The list is extended
+Slice | a[0:2:1] | [4, 3] | Part of the list is printed **NB: from the first element [indexed 0] which is inclusive to the element [indexed 1] hence element on index 2 is exclusive** By default the step is 1 if not inserted and it can be altered negatively or positively to determine the number of steps to take in any direction
+Combine | a + b | [4, 3, 1, 2, 7, 8] | The two lists are joined together
+
+### Sets
+
+let c = {6, 7, 7, 8, 9}
+
+let d = {3, 6, 8, 9}
+
+Goal | Syntax | Result | Notes
+---- | ------ | ------ | -----
+Remove Duplicate | print(c) | {6, 7, 8, 9} | Another 7 is removed from the set
+Item Addition | c.add(5) | {5, 6, 7, 8, 9} | 5 is added to the set
+Union | c.union(d) | {3, 6, 7, 8, 9} | Items from both sets are united together in 1 set
+Intersection | c.intersection(d) | {6, 8, 9} | Identical items are brought together is 1 set
+Difference | c.difference(d) | {7} | 7 is the difference
+
+### Dictionary
+
+a). **Error Handling**
+
+### Reference : [Python Error Handling](https://docs.python.org/3/tutorial/errors.html 'Error Handling Techniques')
+
+**Types of Errors**
+
+1. ValueError
+2. SyntaxError 
+3. TypeError
+4. ConnectionError
+5. ZeroDivisionError
+6. NameError
+7. RuntimeError 
+8. FileNotFoundError
+
+- a _try_ statement is used to handle an exception. The _try_ block lets one test a block of code for errors.
+- an _except_ block lets one handle an error.
+- a _finally_ statement always executes whether exceptions occurred or not. The finally block lets one execute code, regardless of the result of the try and except blocks.
+- an _else_ clause only executes when the _try_ clause terminates normally. The _else_ clause is valid only if the _try_ statement has at least one _except_ clause. The _else_ block lets one execute code when there is no error.
+
+b). **File Handling**
+
+- The key function for working with files in Python is the open() function.
+- The open() function takes two parameters; *filename*, and *mode*.
+- *filename*: gives name of the file that the file object has opened.
+- *mode*: attribute of a file object tells you which mode a file was opened in.
+
+**File Modes in Python**
+
+Mode | Description
+---- | -----------
+‘r’ | This is the default mode. It opens file for reading. It returns an error if the file does not exist.
+‘w’	| This mode opens file for writing. If file does not exist, it creates a new file. If file exists it truncates the file.
+‘x’ | Creates a new file. If file already exists, it returns an error thus the operation fails.
+‘a’ | Open file in append mode. If file does not exist, it creates a new file.
+‘t’ | This is the default mode. It opens in text mode.
+‘b’ | This opens in binary mode. E.g. Images
+‘+’ | This will open a file for reading and writing (updating)
+
+### Object Oriented Programming
+
+#### Classes 
+
+***Definition:*** A class is a code template for creating objects. Objects have member variables and have behaviour associated with them. In python a class is created by the keyword class. An object is created using the constructor of the class. This object will then be called the instance of the class.
+
+#### Libraries 
+
+***Definition:*** A library is a collection of utility methods, classes, and modules that your application code can use to perform specific tasks without writing the functionalities from scratch. It contains bundles of code that can be used repeatedly in different programs. It makes Python Programming simpler and convenient for the Programmer.
+
+Examples of Python libraries:
+
+1. Django
+2. SciPy
+3. Pandas
+4. NumPy
+5. TensorFlow
+6. PyTorch
 
 # Glossary
 
