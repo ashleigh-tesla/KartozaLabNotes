@@ -303,14 +303,16 @@ a). **Error Handling**
 
 **Types of Errors**
 
-1. ValueError
-2. SyntaxError 
-3. TypeError
-4. ConnectionError
-5. ZeroDivisionError
-6. NameError
-7. RuntimeError 
-8. FileNotFoundError
+PythonError | Description
+----- | -----------
+ValueError | An exception that occurs when a function receives an argument of the correct data type but an inappropriate value. This error usually occurs in mathematical operations that require a certain kind of value.
+SyntaxError | An error in the arrangement of words and phrases to create well-formed structured statements and sentences in a particular coding language or programming language, entered by a programmer. For compiled languages, syntax errors are detected at compile-time. A program will not compile until all syntax errors are corrected.
+TypeError | An exception that occurs when the data type of an object in an operation is inappropriate. This can happen when an operation is performed on an object of an incorrect type, or it is not supported for the object.
+ConnectionError | This will be raised, if there is any connection error. For example, the network failed, Domain Name System error so the Request library will raise ConnectionError exception.
+ZeroDivisionError | A built-in Python exception thrown when a number is divided by 0.
+NameError | It occurs when you try to use a variable, function, or module that doesn't exist or wasn't used in a valid way. 
+RuntimeError | A type of error that occurs during program execution. The Python interpreter executes a script if it is syntactically correct. However, if it encounters an issue at runtime, which is not detected when the script is parsed, script execution may halt unexpectedly.
+FileNotFoundError | It indicates that Python cannot find the file you are referencing. Python raises this error because your program cannot continue running without being able to access the file to which your program refers.
 
 - a _try_ statement is used to handle an exception. The _try_ block lets one test a block of code for errors.
 - an _except_ block lets one handle an error.
