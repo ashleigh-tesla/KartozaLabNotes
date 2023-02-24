@@ -363,11 +363,97 @@ Examples of Python libraries:
 
 ### Database
 
-***Definition*** - According to *Wikipedia* a database consists of an organized collection of data for one or more uses, typically in digital form
+***Definition*** - According to *Wikipedia* a database consists of an organized collection of data for one or more uses, accessed electronically typically in digital form. Small databases can be stored on a file system, while large databases are hosted on computer clusters or cloud storage.
+
+### Relational or Structured Query Language Database
+
+***Definition*** - A collection of highly structured tables, wherein each row reflects a data entity, and every column defines a specific information field. Relational databases are built using the structured query language (SQL) to create, store, update, and retrieve data.
 
 ### Database Management System
 
-***Definition*** - According to *Wikipedia* a database management system (DBMS) consists of software that operates databases, providing storage, access, security, backup and other facilities
+***Definition*** - According to *Wikipedia* a database management system (DBMS) consists of software that operates databases, providing storage, access, security, backup and other facilities. It is a data-keeping system with facilities to perform several kinds of operations on a system such as manipulation of the data in the database or the management of the database structure itself.
+
+### Tables or Structured Query Language Relation
+
+***Definition*** - It is a set of data elements (field values) that is organized using a model of vertical columns and horizontal rows. A table has a specified number of columns, but can have any number of rows. 
+
+ id | name  | age
+ -- | ----  | ---
+  1 | Ashleigh | 23
+  2 | Aaron | 24
+  
+(2 rows by 3 columns table)
+
+### Columns or Fields
+
+***Definition*** - It is a set of data values of a particular simple type, one for each row of the table. A field (aka field value) refers specifically to the single item that exists at the intersection between one row and one column.
+
+A Field:
+
+| name  |
+  ----
+| Ashleigh |
+| Manyanye |
+
+A Field Value:
+|          |
+  --------
+| Manyanye |
+
+### Records
+
+***Definition*** - It is the information stored in a table row. 
+
+2 | Aaron | 24   <<= one record     
+
+### Datatypes
+
+- The type of information stored in each column is its datatype.
+
+Datatype | Description
+-------- | -----------
+String | To store free-form text data
+Integer | To store whole numbers
+Real | To store decimal numbers
+Date | To store dates
+Boolean | To store simple true/false values
+
+- If the field is empty, then the field value is referred to as a ‘null’ value.
+
+### Normalisation
+
+***Definition*** - The process of removing redundancy or data duplicacy from a database. According to *Wikipedia* - It is a systematic way of ensuring that a database structure is suitable for general-purpose querying and free of certain undesirable characteristics - insertion, update, and deletion anomalies - that could lead to a loss of data integrity.
+
+### Indexes
+
+***Definition*** - It is a data structure that improves the speed of data retrieval operations on a database table.
+
+### Sequences 
+
+***Definition*** - It is a unique number generator. It is normally used to create a unique identifier for a column in a table.
+
+### Constraint 
+
+***Definition*** - A database constraint is used to ensure that data in a relation matches the modeller’s view of how that data should be stored. 
+
+### Primary Key
+
+***Definition*** - A primary key is one or more field values that make a record unique. Usually the primary key is called id and is a sequence.
+
+### Foreign Key
+
+***Definition*** - A foreign key is used to refer to a unique record on another table (using that other table’s primary key).
+
+### Entity Relationship Diagramming
+
+***Definition*** - The entity-relationship diagram (ER Diagram) is used to design the logical dependencies between the relations. In ER Diagramming, the linkage between tables is normally based on Foreign keys linking to primary keys.
+
+### Transactions
+
+***Definition*** - They allow one to create a rollback position where one can return to if the modifications to the database did not run as planned.
+
+
+
 
 #### PostgreSQL 
 
