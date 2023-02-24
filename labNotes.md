@@ -357,6 +357,22 @@ Examples of Python libraries:
 5. TensorFlow
 6. PyTorch
 
+# Week 6
+
+## PostgreSQL 'n' PostGIS
+
+### Database
+
+***Definition*** - According to *Wikipedia* a database consists of an organized collection of data for one or more uses, typically in digital form
+
+### Database Management System
+
+***Definition*** - According to *Wikipedia* a database management system (DBMS) consists of software that operates databases, providing storage, access, security, backup and other facilities
+
+#### PostgreSQL 
+
+
+
 # Glossary
 
 [Glossary of Key Terms](glossaryOfKeyTerms.md 'Definition of Key Terminology')
