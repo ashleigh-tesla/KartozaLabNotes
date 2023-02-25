@@ -454,11 +454,18 @@ Boolean | To store simple true/false values
 
 
 
-
 #### PostgreSQL 
 
+***Definition*** - PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance. < - Wikipedia
 
-
+| Task | Syntax | Notes |
+| ---- | ------ | ----- |
+| how to create a table | create table streets (id serial not null primary key, name varchar(50)); | serial and varchar are data types. serial tells PostgreSQL to start an integer sequence (auto-number) to populate the id automatically for every new record whereas varchar(50) tells PostgreSQL to create a character field of 50 characters in length. all SQL commands terminate with a semi-colon ( ; ).
+| how to view table contents | select * from streets; | this shows all the contents in the relation
+| how to define a foreign key that points to the primary key of the streets table |  add the key after the table has been created:<br></br>alter table people<br>add constraint people_streets_fk foreign key (street_id) references streets(id);<br></br><br>define the key at time of table creation:<br></br>create table people (id serial not null primary key,<br>name varchar(50),<br>house_no int not null,<br>street_id int references streets(id) not null,<br>phone_no varchar null); | There are two ways to do this: > Add the key after the table has been created >> Define the key at time of table creation
+| how to create indexes in SQL | create index people_name_idx on people(name); | when we want lightning fast searches on people's names |
+| how to dropp tables in SQL | drop table streets; | this deletes or drops a table |
+                     
 # Glossary
 
 [Glossary of Key Terms](glossaryOfKeyTerms.md 'Definition of Key Terminology')
