@@ -194,7 +194,7 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 2. For commenting 2 or more lines of code use 2 sets of 3 single quotes ['''] or double quotes ["""] one placed above and the other set placed below the lines of code
 
-```json
+```
 ''' 
 
 First Statement
@@ -208,7 +208,7 @@ Third Statement
 
 **OR**
   
-```json
+```
 """
 
 1st Statement
@@ -469,7 +469,7 @@ Boolean | To store simple true/false values
 | how to view table contents | ```select * from streets;``` | this shows all the contents in the relation. |
 | how to define a foreign key that points to the primary key of the streets table |  **add the key after the table has been created:**<br></br>```alter table people```<br>```add constraint people_streets_fk foreign key (street_id) references streets(id);```<br></br><br>***define the key at time of table creation:***<br></br>```create table people (id serial not null primary key,```<br>```name varchar(50),```<br>```house_no int not null,```<br>```street_id int references streets(id) not null,```<br>```phone_no varchar null);``` | **There are two ways to do this:** <br>> Add the key after the table has been created <br>>> Define the key at time of table creation |
 | how to create indexes in SQL | ```create index people_name_idx on people(name);``` | when one wants lightning-fast search on people's names. |
-| how to drop table in SQL | ```drop table streets;``` | this deletes or drops a table |
+| how to drop table in SQL | ```drop table streets;``` | this deletes or drops a table. |
 | how to add data to a table | ```insert into streets (name) values ('Paliso Street');``` | Paliso Street is inserted into the *Streets Table* field. |
 | how to select data from a table | ```select name from streets;```<br></br> ```select * from streets;```<br></br> ```select * from streets where name='Paliso Street';```| selects names field in the streets table.<br></br> selects all entries in the streets table.<br></br> selects record where street name is Paliso Street. | 
 | how to update data in a table | ```update streets set name='Phelandaba Street' where name='Main Road';```<br></br> ```update streets set name='Pilani Street' where id=2;``` | updates the street name to Phelandaba Street where street name was Main Road.<br></br> updates the street entry where id is ```2``` |
@@ -481,8 +481,8 @@ Boolean | To store simple true/false values
 | how to aggregate queries | ```select count(*) from people;```<br></br> ```select count(name), street_id```<br>```from people```<br>```group by street_id;``` | tells us how many people objects are in our people table.<br></br>  the counts are summarised by street name.
 | how to create a view | ```create view roads_count_v as```<br>```select count(people.name), streets.name```<br>```from people, streets where people.street_id=streets.id```<br>```group by people.street_id, streets.name;```<br></br> | query saved as a view. |
 | how to select a view | ```select * from roads_count_v;``` | view the road_count_v. |
-| how to modify a view | ```CREATE OR REPLACE VIEW roads_count_v AS```<br>```SELECT count(people.name), streets.name```<br>```FROM people, streets WHERE people.street_id=streets.id```<br>```GROUP BY people.street_id, streets.name```<br>```ORDER BY streets.name;``` | a view is easily changed without impacting on any data in our database |
-| how to drop a view | ```drop view roads_count_v;``` | a view is deleted or erased |
+| how to modify a view | ```CREATE OR REPLACE VIEW roads_count_v AS```<br>```SELECT count(people.name), streets.name```<br>```FROM people, streets WHERE people.street_id=streets.id```<br>```GROUP BY people.street_id, streets.name```<br>```ORDER BY streets.name;``` | a view is easily changed without impacting on any data in our database. |
+| how to drop a view | ```drop view roads_count_v;``` | a view is deleted or erased. |
 | how to create a logging rule | ```create table people_log (name text, time timestamp default NOW());```<br></br> ```create rule people_log as on update to people```<br>```where NEW.phone_no <> OLD.phone_no```<br>```do insert into people_log values (OLD.name);``` | logs every change of phone_no in people's table in to a people_log table. <br></br> creates a rule that logs every change of a phone_no in the people table into the people_log table. |
 
 
