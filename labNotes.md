@@ -194,7 +194,8 @@ Computer hardware may sometimes be seen abbreviated as _computer hw_
 
 2. For commenting 2 or more lines of code use 2 sets of 3 single quotes ['''] or double quotes ["""] one placed above and the other set placed below the lines of code
 
-'''
+```json
+''' 
 
 First Statement
 
@@ -203,9 +204,11 @@ Second Statement
 Third Statement
 
 '''
+```
 
 **OR**
-
+  
+```json
 """
 
 1st Statement
@@ -215,6 +218,7 @@ Third Statement
 3rd Statement
 
 """
+```
 
 ### Variables 
 
@@ -393,7 +397,7 @@ A Field ↧
 | name |
 | ---- |
 | Ashleigh |
-| Manyanye |
+| Manyanye |  
 
 A Field Value ↧
 
@@ -461,13 +465,28 @@ Boolean | To store simple true/false values
 
 | Task | Syntax | Notes |
 | ---- | ------ | ----- |
-| how to create a table | create table streets (id serial not null primary key, name varchar(50)); | serial and varchar are data types. serial tells PostgreSQL to start an integer sequence (auto-number) to populate the id automatically for every new record whereas varchar(50) tells PostgreSQL to create a character field of 50 characters in length. all SQL commands terminate with a semi-colon ( ; ). |
-| how to view table contents | select * from streets; | this shows all the contents in the relation. |
-| how to define a foreign key that points to the primary key of the streets table |  **add the key after the table has been created:**<br></br>alter table people<br>add constraint people_streets_fk foreign key (street_id) references streets(id);<br></br><br>***define the key at time of table creation:***<br></br>create table people (id serial not null primary key,<br>name varchar(50),<br>house_no int not null,<br>street_id int references streets(id) not null,<br>phone_no varchar null); | **There are two ways to do this:** <br>> Add the key after the table has been created <br>>> Define the key at time of table creation |
-| how to create indexes in SQL | create index people_name_idx on people(name); | when one wants lightning-fast search on people's names. |
-| how to drop table in SQL | drop table streets; | this deletes or drops a table |
-| how to add data to a table | insert into streets (name) values ('Paliso Street'); | Paliso Street is inserted into the *Streets Table* field. | 
+| how to create a table | ```create table streets (id serial not null primary key, name varchar(50));``` | serial and varchar are data types. serial tells PostgreSQL to start an integer sequence (auto-number) to populate the id automatically for every new record whereas varchar(50) tells PostgreSQL to create a character field of 50 characters in length. all SQL commands terminate with a semi-colon ( ; ). |
+| how to view table contents | ```select * from streets;``` | this shows all the contents in the relation. |
+| how to define a foreign key that points to the primary key of the streets table |  **add the key after the table has been created:**<br></br>```alter table people```<br>```add constraint people_streets_fk foreign key (street_id) references streets(id);```<br></br><br>***define the key at time of table creation:***<br></br>```create table people (id serial not null primary key,```<br>```name varchar(50),```<br>```house_no int not null,```<br>```street_id int references streets(id) not null,```<br>```phone_no varchar null);``` | **There are two ways to do this:** <br>> Add the key after the table has been created <br>>> Define the key at time of table creation |
+| how to create indexes in SQL | ```create index people_name_idx on people(name);``` | when one wants lightning-fast search on people's names. |
+| how to drop table in SQL | ```drop table streets;``` | this deletes or drops a table |
+| how to add data to a table | ```insert into streets (name) values ('Paliso Street');``` | Paliso Street is inserted into the *Streets Table* field. |
+| how to select data from a table | ```select name from streets;```<br></br> ```select * from streets;```<br></br> ```select * from streets where name='Paliso Street';```| selects names field in the streets table.<br></br> selects all entries in the streets table.<br></br> selects record where street name is Paliso Street. | 
+| how to update data in a table | ```update streets set name='Phelandaba Street' where name='Main Road';```<br></br> ```update streets set name='Pilani Street' where id=2;``` | updates the street name to Phelandaba Street where street name was Main Road.<br></br> updates the street entry where id is ```2``` |
+| how to delete data in a table | ```delete from people where name = 'Joe Smith';``` | deletes the record where name is ```'Joe Smith'``` in the people's table. |
+| how to arrange n sort records with chronology in a table | ```select name, house_no from people order by house_no;``` | puts table records in numerical order of house numbers. |
+| how to filter records | ```select name, house_no from people where house_no < 50 order by house_no;```<br></br> ```select name, house_no from people where name like '%s%';```<br></br> ```select name, house_no from people where name ilike '%r%';``` | filters, arranges, and displays records of house numbers less than 50 in numeric order.<br></br> filters records based on text data.<br></br> it searches for a string of letters regardless of case **NB : The ```like``` clause is _case-sensitive_ hence the ```ilike``` clause is used to return a string of all letters matching uppercase ```R``` or lowercase ```r```** |
+| how to join records from tables | ```select people.name, house_no, streets.name```<br>```from people,streets```<br>```where people.street_id=streets.id;``` | **NB : You also need to specify which two keys must match (foreign key & primary key).** | 
+| how to sub-select | ```select people.name```<br>```from people, (```<br>```select *```<br>```from streets```<br>```where id=1```<br>```) as streets_subset```<br>```where people.street_id = streets_subset.id;``` | 
+| how to aggregate queries | ```select count(*) from people;```<br></br> ```select count(name), street_id```<br>```from people```<br>```group by street_id;``` | tells us how many people objects are in our people table.<br></br>  the counts are summarised by street name.
+| how to create a view | ```create view roads_count_v as```<br>```select count(people.name), streets.name```<br>```from people, streets where people.street_id=streets.id```<br>```group by people.street_id, streets.name;```<br></br> | query saved as a view. |
+| how to select a view | ```select * from roads_count_v;``` | view the road_count_v. |
+| how to modify a view | ```CREATE OR REPLACE VIEW roads_count_v AS```<br>```SELECT count(people.name), streets.name```<br>```FROM people, streets WHERE people.street_id=streets.id```<br>```GROUP BY people.street_id, streets.name```<br>```ORDER BY streets.name;``` | a view is easily changed without impacting on any data in our database |
+| how to drop a view | ```drop view roads_count_v;``` | a view is deleted or erased |
+| how to create a logging rule | ```create table people_log (name text, time timestamp default NOW());```<br></br> ```create rule people_log as on update to people```<br>```where NEW.phone_no <> OLD.phone_no```<br>```do insert into people_log values (OLD.name);``` | logs every change of phone_no in people's table in to a people_log table. <br></br> creates a rule that logs every change of a phone_no in the people table into the people_log table. |
+
+
                      
 # Glossary
 
-[Glossary of Key Terms](glossaryOfKeyTerms.md 'Definition of Key Terminology')
+[Glossary of Key Terms](glossaryOfKeyTerms.md 'Definition of Key Terminology')  
