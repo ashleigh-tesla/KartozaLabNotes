@@ -388,22 +388,24 @@ Examples of Python libraries:
 
 ***Definition*** - It is a set of data values of a particular simple type, one for each row of the table. A field (aka field value) refers specifically to the single item that exists at the intersection between one row and one column.
 
-A Field:
+A Field ↧
 
 | name |
-  ----
-Ashleigh
-Manyanye
+| ---- |
+| Ashleigh |
+| Manyanye |
 
-A Field Value:
+A Field Value ↧
 
 | Manyanye |
+| :------: |
 
 ### Records
 
-***Definition*** - It is the information stored in a table row. 
+***Definition*** - It is the information stored in a table row. One record is shown here ↧  
 
-2 | Aaron | 24   <<= one record     
+|  2  |  Aaron  |  24  |
+| :-- |  :---:  | ---: |
 
 ### Datatypes
 
