@@ -485,6 +485,71 @@ Boolean | To store simple true/false values
 | how to drop a view | ```drop view roads_count_v;``` | a view is deleted or erased. |
 | how to create a logging rule | ```create table people_log (name text, time timestamp default NOW());```<br></br> ```create rule people_log as on update to people```<br>```where NEW.phone_no <> OLD.phone_no```<br>```do insert into people_log values (OLD.name);``` | logs every change of phone_no in people's table in to a people_log table. <br></br> creates a rule that logs every change of a phone_no in the people table into the people_log table. |
 
+# Week 7
+
+## Python Libraries in GIS
+
+### Python Session (3) with Zakki
+
+[Python Lesson Three](https://www.youtube.com/watch?v=di-88FH4ius&t=11s 'Python Lesson Three by Zakki')
+
+- Python Libraries for GIS include:
+
+1. CSV
+2. SHAPELY
+3. GEOPANDA
+4. FIONA
+5. RASTERIO
+6. PYPROJ
+
+| Library | Notes |
+| ------- | ----- |
+| csv | used to export and import files |
+| shapely | used to manipulate or create or transform geometry objects |
+| geopanda | an extension of panda used to manipulate or read data of series of data |
+| fiona | --- |
+| rasterio | used to manipulate raster data |
+| pyproj | used to create the projection object |
+
+#### CSV
+
+| goal | syntax | notes |
+| ---- | ------ | ----- |
+| how to read csv with list | ```import csv``` <br> ```with open ('file.csv') as csvfile:``` <br> ```reader = csv.reader(csvfile):``` <br> ```for row in reader:``` <br></br> ```print(', '.join(row))``` <br></br> ```print(row)``` <br></br> ```print(row[0])``` | reading csv with list |
+| how to read csv with dictionary | ```import csv``` <br> ```with open ('file.csv') as csvfile:``` <br> ```reader = csv.DictReader(csvfile):``` <br> ```for row in reader:``` <br></br> ```print(row)``` <br></br> ```print(row['country'])``` <br></br> ```print(row[0])``` | reading csv with dictionary |
+| how to write csv with list | ```import csv``` <br> ```with open ('file.cvs', 'w', newline='') as cvsfile:``` <br> ```writer = csv.writer(csvfile)``` <br> ```writer.writerow(['First Name', 'last Name', 'Country'])``` | writes items list |
+| how to write with dictionary | ```import csv``` <br ```with open('file.csv', 'w', newline='') as csvfile:``` <br> ```fieldnames=['first_name', 'last_name']``` <br> ```writer = csv.DictWriter(csvfile, fieldnames=fieldnames)``` <br></br> ```write.writeheader()``` <br> ```writer.writerow({'first_name': 'First Name', 'last_name': 'Last Name'})``` | writes items dictionary |
+
+#### FIONA
+
+**Installation**
+
+***When Installing Shapely from CLI -> use "pip install shapely"***
+
+**Supported Geometry**
+
+- Points
+- Lines 
+- Polygons
+
+*NB* : LineString is a collection of points
+
+**Construction**
+
+| goal | syntax | notes |
+| how to import point | ```from shapely.geometry import Point``` | imports point |
+| how to import linestring | ```from shapely.geometry import LineString``` | imports linestring |
+| how to use shapely with well-known-text<br></br>how to use shapely with well-known-binary | ```from shapely import wkt```<br>```point = wkt.loads("POINT(a, b))```<br>```point.wkt```<br></br>```point.wkb``` | gets well-known-text <br></br> gets well-known-binary |
+| how to find area | ```point.area``` | finds area of a point |
+| how to find center | ```point.centroid``` | finds centre |
+| how to check if a point is contained in a line or not | ```line.contains(point)``` | False is returned bcoz the point is not found on the line |
+| calculating distance between points | ```point.distance(Point(1, 1))``` | 1.4142135623730951 |
+
+
+
+
+
+
 
                      
 # Glossary
