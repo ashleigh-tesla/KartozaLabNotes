@@ -507,7 +507,7 @@ Boolean | To store simple true/false values
 | csv | used to export and import files |
 | shapely | used to manipulate or create or transform geometry objects |
 | geopanda | an extension of panda used to manipulate or read data of series of data |
-| fiona | --- |
+| fiona |  Fiona streams simple feature data to and from GIS formats like GeoPackage and Shapefile. Fiona can read and write real-world data using multi-layered GIS formats, zipped and in-memory virtual file systems, from files on your hard drive or in cloud storage |
 | rasterio | used to manipulate raster data |
 | pyproj | used to create the projection object |
 
@@ -518,9 +518,9 @@ Boolean | To store simple true/false values
 | how to read csv with list | ```import csv``` <br> ```with open ('file.csv') as csvfile:``` <br> ```reader = csv.reader(csvfile):``` <br> ```for row in reader:``` <br></br> ```print(', '.join(row))``` <br></br> ```print(row)``` <br></br> ```print(row[0])``` | reading csv with list |
 | how to read csv with dictionary | ```import csv``` <br> ```with open ('file.csv') as csvfile:``` <br> ```reader = csv.DictReader(csvfile):``` <br> ```for row in reader:``` <br></br> ```print(row)``` <br></br> ```print(row['country'])``` <br></br> ```print(row[0])``` | reading csv with dictionary |
 | how to write csv with list | ```import csv``` <br> ```with open ('file.cvs', 'w', newline='') as cvsfile:``` <br> ```writer = csv.writer(csvfile)``` <br> ```writer.writerow(['First Name', 'last Name', 'Country'])``` | writes items list |
-| how to write with dictionary | ```import csv``` <br ```with open('file.csv', 'w', newline='') as csvfile:``` <br> ```fieldnames=['first_name', 'last_name']``` <br> ```writer = csv.DictWriter(csvfile, fieldnames=fieldnames)``` <br></br> ```write.writeheader()``` <br> ```writer.writerow({'first_name': 'First Name', 'last_name': 'Last Name'})``` | writes items dictionary |
+| how to write with dictionary | ```import csv``` <br> ```with open('file.csv', 'w', newline='') as csvfile:``` <br> ```fieldnames=['first_name', 'last_name']``` <br> ```writer = csv.DictWriter(csvfile, fieldnames=fieldnames)``` <br></br> ```write.writeheader()``` <br> ```writer.writerow({'first_name': 'First Name', 'last_name': 'Last Name'})``` | writes items dictionary |
 
-#### FIONA
+#### SHAPELY
 
 **Installation**
 
@@ -545,7 +545,19 @@ Boolean | To store simple true/false values
 | how to check if a point is contained in a line or not | ```line.contains(point)``` | False is returned bcoz the point is not found on the line |
 | calculating distance between points | ```point.distance(Point(1, 1))``` | 1.4142135623730951 |
 
+#### FIONA
 
+**Installation**
+
+***When Installing Shapely from CLI -> use "pip install fiona"***
+
+**Construction**
+
+| goal | syntax | notes |
+| how to print a record | ```import fiona``` <br> ```with fiona.open('shapefile.shp') as shapefile:``` <br> ```for record in shapefile:``` <br> ```print(record)``` | prints record |
+| how print geometry | ```import fiona``` <br> ```with fiona.open('shapefile.shp') as shapefile:``` <br> ```for record in shapefile:``` <br> ```print(record['geometry'])``` | prints geometry |
+| how to print geometry well-known-text | ```import fiona``` <br> ```with fiona.open('shapefile.shp') as shapefile:``` <br> ```for record in shapefile:``` <br> ```geom = shape(record['geometry'])``` <br>  ```print(geom.wkt)``` | prints geometry well-known-text |
+| how to write to csv | ```import csv``` <br> ```from shapely.geometry import Point, mapping``` <br> ```from fiona import collection``` <br> ```from fiona.crs import from_espg``` <br> ```with fiona.open('my_shapefile.shp', 'w', crs=from_espg(3857), driver='ESRI Shapefile', schema=schema) as output:``` <br></br> ```point = Point(60, 60)``` *e.g* ```taking point with coordinates (60, 60)``` <br></br> ```prop = {'X':float(row['X']),``` <br> ```'Y':float(row['Y']),'Type':row['Type'],'dip':int(row['dip']),'dip_direct':int(row['dip_direct'])}``` <br></br> ```output.write({'geometry':mapping(point), 'properties': prop})``` | how to export geometry objects to shapefiles using ``fiona`` |
 
 
 
