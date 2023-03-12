@@ -559,8 +559,11 @@ Boolean | To store simple true/false values
 | how to print geometry well-known-text | ```import fiona``` <br> ```with fiona.open('shapefile.shp') as shapefile:``` <br> ```for record in shapefile:``` <br> ```geom = shape(record['geometry'])``` <br>  ```print(geom.wkt)``` | prints geometry well-known-text |
 | how to write to csv | ```import csv``` <br> ```from shapely.geometry import Point, mapping``` <br> ```from fiona import collection``` <br> ```from fiona.crs import from_espg``` <br> ```with fiona.open('my_shapefile.shp', 'w', crs=from_espg(3857), driver='ESRI Shapefile', schema=schema) as output:``` <br></br> ```point = Point(60, 60)``` *e.g* ```taking point with coordinates (60, 60)``` <br></br> ```prop = {'X':float(row['X']),``` <br> ```'Y':float(row['Y']),'Type':row['Type'],'dip':int(row['dip']),'dip_direct':int(row['dip_direct'])}``` <br></br> ```output.write({'geometry':mapping(point), 'properties': prop})``` | how to export geometry objects to shapefiles using ``fiona`` |
 
+# Week 8
 
+## ERDs
 
+### Entity Relationship Diagrams
 
 
                      

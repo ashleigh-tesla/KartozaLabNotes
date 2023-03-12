@@ -19,3 +19,5 @@
 # [Week 6](./labNotes.md#week-6 'Work in Week 6')
 
 # [Week 7](./labNotes.md#week-7 'Work in Week 7')
+
+# [Week 8](./labNotes.md#week-8 'Work in Week 8')
