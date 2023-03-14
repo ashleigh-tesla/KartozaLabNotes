@@ -565,6 +565,53 @@ Boolean | To store simple true/false values
 
 ### Entity Relationship Diagrams
 
+***Definition*** - An Entity Relationship Diagram _(ERD)_ is a visual representation of different entities within a system and how they relate to each other
+
+### Entity Relationship Diagram (ERD) Symbols and Notations
+
+![Entity Relationship Diagram (ERD) Symbols and Notations](/pics/Entity%20Relationship%20Diagram%20(ERD)%20Symbols%20and%20Notations.webp  "Entity Relationship Diagram (ERD) Symbols and Notations")
+
+- There are three basic elements in an ER Diagram: entity, attribute, relationship. There are more elements which are based on the main elements. They are weak entity, multi valued attribute, derived attribute, weak relationship, and recursive relationship. Cardinality and ordinality are two other notations used in ER diagrams to further define relationships.
+
+### ER Models in Database Design
+
+- They are widely used to design relational databases. The entities in the ER schema become tables, attributes and converted the database schema. Since they can be used to visualize database tables and their relationship, it’s commonly used for database troubleshooting as well.
+
+### Entity Relationship Diagrams in Software Engineering
+
+- Entity relationship diagrams are used in software engineering during the planning stages of the software project. They help to identify different system elements and their relationships with each other. It is often used as the basis for data flow diagrams or DFD’s as they are commonly known.
+- For example, an inventory software used in a retail shop will have a database that monitors elements such as purchases, item, item type, item source and item price. Rendering this information through an ER diagram would be something like this: 
+
+![Entity Relationship Diagrams in Software Engineering](/pics/Entity%20Relationship%20Diagrams%20in%20Software%20Engineering.webp "Entity Relationship Diagrams in Software Engineering") 
+
+| Element | Description | Image |
+| ------- | ----------- | ----- |
+| Entity | An entity can be a person, place, event, or object that is relevant to a given system. For example, a school system may include students, teachers, major courses, subjects, fees, and other items. Entities are represented in ER diagrams by a rectangle and named using singular nouns. | ![Entity](/pics/Entity.webp  "Entity") |  
+| Weak Entity | A weak entity is an entity that depends on the existence of another entity. In more technical terms it can be defined as an entity that cannot be identified by its own attributes. It uses a foreign key combined with its attributed to form the primary key. An entity like order item is a good example for this. The order item will be meaningless without an order so it depends on the existence of the order. | ![Weak Entity](/pics/Weak%20Entity.webp  "Weak Entity") |
+| Attribute | An attribute is a property, trait, or characteristic of an entity, relationship, or another attribute. For example, the attribute Inventory Item Name is an attribute of the entity Inventory Item. An entity can have as many attributes as necessary. Meanwhile, attributes can also have their own specific attributes. For example, the attribute “customer address” can have the attributes number, street, city, and state. These are called composite attributes. Note that some top level ER diagrams do not show attributes for the sake of simplicity. In those that do, however, attributes are represented by oval shapes. | ![Attribute](/pics/Attribute.webp  "Attribute") |
+| Multivalued Attribute | If an attribute can have more than one value it is called a multi valued attribute It is important to note that this is different from an attribute having its own attributes. For example, a teacher entity can have multiple subject values. | ![Multivalued Attribute](/pics/Multivalued%20Attribute.webp "Multivalued Attribute") |
+| Derived Attribute | An attribute based on another attribute. This is found rarely in ER diagrams. For example, for a circle, the area can be derived from the radius. | ![Derived Attribute](/pics/Derived%20Attribute.webp "Derived Attribute") |
+| Relationship | A relationship describes how entities interact. For example, the entity “Carpenter” may be related to the entity “table” by the relationship “builds” or “makes”. Relationships are represented by diamond shapes and are labeled using verbs. | ![Relationship](/pics/Relationship.webp "Relationship") |
+| Recursive Relationship | If the same entity participates more than once in a relationship it is known as a recursive relationship. In the below example an employee can be a supervisor and be supervised, so there is a recursive relationship. | ![Recursive Relationship](/pics/Recursive%20Relationship.webp "Recursive Relationship") |
+| Cardinality and Ordinality | These two further defines relationships between entities by placing the relationship in the context of numbers. In an email system, for example, one account can have multiple contacts. The relationship, in this case, follows a “one to many” model. There are a number of notations used to present cardinality in ER diagrams. Chen, UML, Crow’s foot, Bachman are some of the popular notations. Creately supports Chen, UML and Crow’s foot notations.The following example uses UML to show cardinality. | ![Cardinality and Ordinality](pics/Cardinality%20and%20Ordinality.webp "Cardinality and Ordinality") |
+
+### How to Draw Entity Relationship Diagrams
+
+1. ***Identify all the entities*** in the system. An entity should appear only once in a particular diagram. Create rectangles for all entities and name them properly.
+2. ***Identify relationships*** between entities. Connect them using a line and add a diamond in the middle describing the relationship.
+3. ***Add attributes*** for entities. Give meaningful attribute names so they can be understood easily. 
+
+### ERD Best Practices
+
+1. Provide a precise and appropriate name for each entity, attribute, and relationship in the diagram. Terms that are simple and familiar always beats vague, technical-sounding words. In naming entities, remember to use singular nouns. However, adjectives may be used to distinguish entities belonging to the same class (part-time employee and full-time employee, for example). Meanwhile attribute names must be meaningful, unique, system-independent, and easily understandable.
+2. Remove vague, redundant or unnecessary relationships between entities.
+3. Never connect a relationship to another relationship.
+4. Make effective use of colors. You can use colors to classify similar entities or to highlight key areas in your diagrams.
+
+| **Benefits of Entity Relationship Diagrams** |
+| -------------------------------------------- |
+| ER diagrams constitute a very useful framework for creating and manipulating databases. First, ER diagrams are easy to understand and do not require a person to undergo extensive training to be able to work with it efficiently and accurately. This means that designers can use ER diagrams to easily communicate with developers, customers, and end users, regardless of their IT proficiency. <br></br> Second, ER diagrams are readily translatable into relational tables which can be used to quickly build databases. In addition, ER diagrams can directly be used by database developers as the blueprint for implementing data in specific software applications. <br></br> Lastly, ER diagrams may be applied in other contexts such as describing the different relationships and operations within an organization. <br></br> |
+
 
                      
 # Glossary
