@@ -537,6 +537,7 @@ Boolean | To store simple true/false values
 **Construction**
 
 | goal | syntax | notes |
+| ---- | ------ | ----- |
 | how to import point | ```from shapely.geometry import Point``` | imports point |
 | how to import linestring | ```from shapely.geometry import LineString``` | imports linestring |
 | how to use shapely with well-known-text<br></br>how to use shapely with well-known-binary | ```from shapely import wkt```<br>```point = wkt.loads("POINT(a, b))```<br>```point.wkt```<br></br>```point.wkb``` | gets well-known-text <br></br> gets well-known-binary |
@@ -554,6 +555,7 @@ Boolean | To store simple true/false values
 **Construction**
 
 | goal | syntax | notes |
+| ---- | ------ | ----- |
 | how to print a record | ```import fiona``` <br> ```with fiona.open('shapefile.shp') as shapefile:``` <br> ```for record in shapefile:``` <br> ```print(record)``` | prints record |
 | how print geometry | ```import fiona``` <br> ```with fiona.open('shapefile.shp') as shapefile:``` <br> ```for record in shapefile:``` <br> ```print(record['geometry'])``` | prints geometry |
 | how to print geometry well-known-text | ```import fiona``` <br> ```with fiona.open('shapefile.shp') as shapefile:``` <br> ```for record in shapefile:``` <br> ```geom = shape(record['geometry'])``` <br>  ```print(geom.wkt)``` | prints geometry well-known-text |
@@ -563,7 +565,7 @@ Boolean | To store simple true/false values
 
 ## ERDs
 
-### Entity Relationship Diagrams
+### Reference : [ERD](https://creately.com/guides/er-diagrams-tutorial/ 'Entity Relationship Diagrams')
 
 ***Definition*** - An Entity Relationship Diagram _(ERD)_ is a visual representation of different entities within a system and how they relate to each other
 
