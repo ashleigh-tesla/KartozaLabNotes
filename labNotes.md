@@ -615,6 +615,17 @@ Boolean | To store simple true/false values
 | ER diagrams constitute a very useful framework for creating and manipulating databases. First, ER diagrams are easy to understand and do not require a person to undergo extensive training to be able to work with it efficiently and accurately. This means that designers can use ER diagrams to easily communicate with developers, customers, and end users, regardless of their IT proficiency. <br></br> Second, ER diagrams are readily translatable into relational tables which can be used to quickly build databases. In addition, ER diagrams can directly be used by database developers as the blueprint for implementing data in specific software applications. <br></br> Lastly, ER diagrams may be applied in other contexts such as describing the different relationships and operations within an organization. <br></br> |
 
 
+
+
+
+# Week 9
+
+## ???
+
+### Python Session (4) with Zakki
+
+[Python Lesson Four](https://www.youtube.com/watch?v=-JW38SmqM_I&t=8s 'Python Lesson Four by Zakki')
+
                      
 # Glossary
 
