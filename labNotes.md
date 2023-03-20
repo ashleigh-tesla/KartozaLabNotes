@@ -620,11 +620,29 @@ Boolean | To store simple true/false values
 
 # Week 9
 
-## ???
+## Geo SQL Alchemy
 
 ### Python Session (4) with Zakki
 
 [Python Lesson Four](https://www.youtube.com/watch?v=-JW38SmqM_I&t=8s 'Python Lesson Four by Zakki')
+
+### SQL Toolkit, ORM
+
+| Goal | How To Do It? |
+| ---- | ------------- |
+| install psycopg2 | ```pip install psycopg2``` |
+| install sqlalchemy | ```pip install sqlalchemy``` |
+| install GeoAlchemy2 | ```pip install GeoAlchemy2``` |
+| connect to existing database | ```"postgresql://gis:gis@localhost:5432/gis"``` <br></br> ```'postgresql://username:password@localhost:port/database_name'``` |
+| how to start | ```import sqlalchemy as db``` <br> ```from sqlalchemy import create_engine``` <br> ```engine = create_engine('postgresql://my_username:my_password@localhost:port/database_name', echo=True)``` <br> ```metadata = db.MetaData()``` |
+| get table | ```electricity_line_type=db.Table('electricity_line_type', metadata, autoload=True, autoload_with=engine)``` |
+| fields or columns in a table | ```table_name.columns.keys``` |
+| tables metadata | ```metadata.tables``` <br> ```metadata.tables['table_name'] |
+| lake | ```metadata.tables['lake'] |
+| create table | ```from sqlalchemy.ext.declarative import declarative_base``` <br> ```from sqlalchemy import Column, Integer, String``` <br> ```from geoalchemy2 import Geometry``` <br></br> ```Base=declarative_base()``` <br></br> ```class Lake(Base):``` <br> ```__tablename__='lake'``` <br></br> ```id=Column(Integer primary_key=True)``` <br> ```name=Column(String)``` <br> ```geom=Column(Geometry(POLYGON))``` <br></br> ```Lake.__table__.create(engine)``` |
+
+
+
 
                      
 # Glossary
