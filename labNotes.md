@@ -339,7 +339,7 @@ Mode | Description
 ‘x’ | Creates a new file. If file already exists, it returns an error thus the operation fails.
 ‘a’ | Open file in append mode. If file does not exist, it creates a new file.
 ‘t’ | This is the default mode. It opens in text mode.
-‘b’ | This opens in binary mode. E.g. Images
+‘b’ | This opens in binary mode. E.g. pics
 ‘+’ | This will open a file for reading and writing (updating)
 
 ### Object Oriented Programming
@@ -644,7 +644,195 @@ Boolean | To store simple true/false values
 
 
 
+
+# Week 10
+
+## Sketchy Tree Styling in QGIS
+
+### How To Make Sketchy Trees in QGIS
+
+This article focuses on the symbology of a point layer. The goal is to make the tree point layer look like it has been sketched. This is done using geometry generator, SVGs and wave_randomised or triangular_wave_randomised. Only QGIS 3.28.0 or other recent versions can be used for these styles.
+
+**Output:**
+
+![Sketchy Tree](pics/sketchy_tree.png)
+
+**Steps:**
+
+1. Create a point layer with a crown_radius_m column in QGIS, in EPSG: 4326. 
+New shapefile layer &rarr; input file name &rarr; select Point for Geometry Type &rarr; specify EPSG &rarr; Add new field ‘crown_radi’ &rarr; OK. If this is created in PostgreSQL, the column can be named ‘crown_radius_m’ (the more detailed, the better but shapefile column naming is character restricted in QGIS, therefore, ‘crown_radi’ is fine).
+
+![Point Layer Creation](pics/image15.png "Point Layer Creation")
+
+2. Add a few random points and populate the columns.  
+
+![Randomising Points](pics/radom_point.png 'Randomising Points')
+
+3. Under ‘Layer Styling’, select Single Symbol. Click on ‘Simple Marker and Select ‘Geometry Generator’ for ‘Symbol layer type’ and ‘Polygon/MultiPolygon’ for ‘Geometry type’.
+
+![Layer Styling](pics/simple_marker.png "Layer Styling")
+
+1. To create a buffer that depends on the crown radius value, input the following in the expression:
+buffer($geometry, “crown_radi”) - 🡪 Quotation marks (“ “) must be used to refer to columns.
+
+![Buffer](pics/buffer.png 'Buffer')
+
+Tool explained:
+
+![Tool Explanation](pics/image13.png "Tool Explanation")
+
+Parameters with square brackets are parameters that optional.
+However, the user must input geometry and distance for the buffer (in this case, it is given by the crown radius value so the distance for the buffer differs per feature). If you are going to input values for segments, cap, join and miter_limit, you can just input values while emitting the titles but they must then be in the same order as shown in the documentation. However, if the order is not applied rigidly or only some parameters need to be changed, provide the names of the parameters, for example:
+Buffer($geometry, “crown_radi”, cap:=’square’)
+
+Output:
+
+![Buffer Output](pics/buffer_output.png 'Buffer Output')
+
+Output of changing the segments:
+
+Segments = 1 
+
+![App Screenshot](pics/image28.png)
+
+Segments = 2 
+
+![App Screenshot](pics/image27.png)
+
+Segments:= 8
+
+![App Screenshot](pics/image22.png)
+
+Therefore, increasing the segments increases the smoothness of the buffer.  
+
+1. Creating the wave effect around the points
+Method 1: Using triangular_wave_randomized
+Experimenting with the parameters of the tool.
+
+![triangular_wave_randomized](pics/image1.png "triangular_wave_randomized")
+
+For the geometry parameter, we input the buffer function since the triangulated waves are created on the buffer created on the point. 
+triangular_wave_randomized( buffer($geometry, "crown_radi"), 1,1,1,1,1). 
+Inputting the value 1 for all the compulsory parameters is expected to create triangles around the buffer of equal shape and length (besides the starting and ending point) because that means only wavelength of 1 (since the randomly generated number is between minimum of 1 and maximum of 1, which is 1, and amplitude of 1 is selected. Therefore, this is like using triangulated_wave(buffer($geometry, “crown_radi”), 1, 1) instead, since this does not create the triangulated waves based on selecting a value at random from an interval). Output:
+
+![triangular_wave_randomized output](pics/image29.png 'triangular_wave_randomized output')
+
+Increasing the range between the minimum and maximum wavelengths increases the chances of having wider angles between your triangles then increasing the range of amplitudes increases how deeply the triangles can penetrate into the buffer:
+
+ Wavelength of 5           |  Amplitude of 5
+:-------------------------:|:-------------------------:
+![App Screenshot](pics/image9.png)  | ![App Screenshot](pics/image18.png)
+
+Method 2: Using wave_randomized. 
+
+1. Follow the steps in Method 1 above to create a new Point shapefile layer.
+Click on the pencil in the Digitizing Toolbar or Right-click on your created layer and Toggle Editing to be able to digitise new points.
+
+![wave_randomized](pics/image31.png "wave_randomized")
+
+2. Digitise a few well-spaced random points and populate the ‘id’ and ‘crown_radi’ columns. 
+3. Follow Steps 3 & 4 above to change the Symbol Layer Type and Geometry Type and create a buffer that depends on the crown radius value [from the ‘crown_radi’ column]. 
+
+
+![App Screenshot](pics/image10.png)
+
+4. We can then apply the wave randomised function to the buffer. It takes in the 6 arguments that are outlined in the image below. We start with all arguments excluding the geometry equal to 1 (initial conditions) and investigate the effect of each argument on the output by keeping all others at 1. 
+
+![App Screenshot](pics/image25.png)
+
+Initial output:
+
+![App Screenshot](pics/image16.png)
+
+First, we look at the minimum wavelength of waves. It ranges from 0 to 1. The lowest minimum wavelength yields more “petals” to our flower looking shape. This is because the wavelengths are shortened due to a lower possible minimum. This then fits more waves as the minimum wavelength number approaches zero.  
+Min=0.1 
+
+![App Screenshot](pics/min1.png)
+
+Min=0.5 
+
+![App Screenshot](pics/image7.png)
+
+Maximum wavelength of waves which ranges from the minimum wavelength to positive infinity.
+Larger maximum wavelengths create more irregular looking shapes due to the greater variation in the wavelengths and thus shapes of the waves created around the buffer boundary of the point. This does not quite apply to the two below where min. wavelength = max. wavelength.  
+
+Min = 0.1, Max = 0.1 
+
+![App Screenshot](pics/min_max_1.png)
+
+Min = 0.5, Max = 0.5 
+
+![App Screenshot](pics/min_max_5.png)
+
+Min = 0.1, Max = 4
+
+![App Screenshot](pics/min_max_4.png)
+
+Min = 0.1, Max = 8
+
+![App Screenshot](pics/min_max_8.png)
+
+Now, we investigate the minimum and maximum amplitudes of the random waves created.  
+
+With minimum and maximum wavelengths kept at 1.  
+Minimum amplitude = 0.1, Maximum amplitude = 1:
+
+![App Screenshot](pics/min_max_amp_1.png)
+
+We immediately observe that the wave amplitude affects the distance that the “petals” on the circumference can approach the centre of the point (the centroid). 
+
+Minimum amplitude = 0.1, Maximum amplitude = 0.3:
+
+![App Screenshot](pics/min_max_amp_3.png)
+
+And now with the smaller minimum and maximum amplitudes, we get closer to the desired sketchy shape.  
+
+6. We can now duplicate the Marker 
+![App Screenshot](pics/image8.png)
+
+7. Make the first Marker’s Geometry Generator fill colour Transparent.
+![App Screenshot](pics/image14.png)
+
+Then click on the green plus sign to Add Symbol Layer. Once added, change the Symbol Layer Type to ‘Outline: Simple Line’ and match the Stroke Widths. Playing around with the stroke widths yields different sketchy outputs.
+
+![App Screenshot](pics/add_symbol.png)
+
+You can also continue to duplicate the Geometry Generator layers with different seed values to create more sketch lines.
+
+![App Screenshot](pics/dup.png)
+
+8. Once the outlines look sketchy, we can change the Symbol Layer Type to Gradient Fill.
+This shows a simple Gradient Fill from the top to the bottom of the symbol.
+
+![App Screenshot](pics/symbol_layer_type.png)
+
+The reference point 1 tells us where the light of the gradient should originate. The box below shows the top-left represents (x,y) = (0,0) and the bottom-right is (1,1). As such your gradient direction is determined by the (x,y) values in the first and second reference points.
+
+![App Screenshot](pics/xy.png)
+
+Creating the centroid marker.
+
+![App Screenshot](pics/centroid_marker.png)
+
+This can be done on Inkscape. Once you have created your own svg in Inkscape, save it.  You can then use your Marker in QGIS under ‘Symbology’ of the third layer of your style, select ‘SVG marker’ and then choose the marker you created in Inkscape This embeds the svg on top of the tree layer.
+
+![App Screenshot](pics/image_17.png)
+
+Adding Leafy Texture.
+
+![App Screenshot](pics/image_21.png)
+
+NB: Trees have leaves, so they must be given a leafy texture
+
+![App Screenshot](pics/image_19.png)
+
+Finally the sketchy trees will have a leafy texture with small ‘svg’ markers on top:
+
+![App Screenshot](pics/image_18.png)
+
                      
 # Glossary
+
+
 
 [Glossary of Key Terms](glossaryOfKeyTerms.md 'Definition of Key Terminology')  
