@@ -24,4 +24,4 @@
 
 # [Week 9](./labNotes.md#week-9 'Work in Week 9')
 
-# [Week 10](./labNotes.md#week-9 'Work in Week 10')
+# [Week 10](./labNotes.md#week-10 'Work in Week 10')
