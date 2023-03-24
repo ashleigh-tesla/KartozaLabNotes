@@ -634,12 +634,30 @@ Boolean | To store simple true/false values
 | install sqlalchemy | ```pip install sqlalchemy``` |
 | install GeoAlchemy2 | ```pip install GeoAlchemy2``` |
 | connect to existing database | ```"postgresql://gis:gis@localhost:5432/gis"``` <br></br> ```'postgresql://username:password@localhost:port/database_name'``` |
-| how to start | ```import sqlalchemy as db``` <br> ```from sqlalchemy import create_engine``` <br> ```engine = create_engine('postgresql://my_username:my_password@localhost:port/database_name', echo=True)``` <br> ```metadata = db.MetaData()``` |
-| get table | ```electricity_line_type=db.Table('electricity_line_type', metadata, autoload=True, autoload_with=engine)``` |
-| fields or columns in a table | ```table_name.columns.keys``` |
-| tables metadata | ```metadata.tables``` <br> ```metadata.tables['table_name'] |
+| how to start | ```import sqlalchemy as db``` <br> ```from sqlalchemy import create_engine``` <br> ```engine = create_engine('postgresql://my_database_username:my_password@localhost:port/database_name', echo=True)``` <br> ```metadata = db.MetaData()``` |
+| get table | ```table_name=db.Table('table_name', metadata, autoload=True, autoload_with=engine)``` |
+| get field names or column names in a table | ```table_name.columns.keys``` |
+| get tables in metadata | ```metadata.tables``` <br> ```metadata.tables['table_name'] |
 | lake | ```metadata.tables['lake'] |
-| create table | ```from sqlalchemy.ext.declarative import declarative_base``` <br> ```from sqlalchemy import Column, Integer, String``` <br> ```from geoalchemy2 import Geometry``` <br></br> ```Base=declarative_base()``` <br></br> ```class Lake(Base):``` <br> ```__tablename__='lake'``` <br></br> ```id=Column(Integer primary_key=True)``` <br> ```name=Column(String)``` <br> ```geom=Column(Geometry(POLYGON))``` <br></br> ```Lake.__table__.create(engine)``` |
+| metadata reflection on engine | ```metadata.reflect(engine)``` |
+| create table | ```from sqlalchemy.ext.declarative import declarative_base``` <br> ```from sqlalchemy import Column, Integer, String``` <br> ```from geoalchemy2 import Geometry``` <br></br> ```Base=declarative_base()``` <br></br> ```class Lake(Base):``` <br> ```__tablename__='lake'``` <br></br> ```id=Column(Integer, primary_key=True)``` <br> ```name=Column(String)``` <br> ```geom=Column(Geometry(POLYGON))``` <br></br> ```Lake.__table__.create(engine)``` |
+| use uuid | ```from sqlalchemy.ext.declarative import declarative_base``` <br> ```from sqlalchemy.dialects import postgresql``` <br> ```import uuid``` <br></br> ```Base = declarative_base()``` <br></br> ```class User(Base):``` <br> ```__tablename__="users"``` <br></br> ```id=Column(postgresql.UUID(as_uuid=True), default=uuid.uuid4(), primary_key=True)``` <br> ```email=Column(String, unique=True)``` |
+| simple select | ```connection = engine.connect()``` <br> ```query = db.select([table_name])``` <br> ```result_proxy = connection.execute(query)``` <br> ```result_set = result_proxy.fetchall()``` <br></br> # do some slicing |
+| Or use ORM | ```from sqlalchemy.orm import sessionmaker``` <br> ```Session = sessionmaker(bind=engine)``` <br> ```session = Session()``` <br> ```session.query(table_name).filter_by(name='preferred_name').all()``` |
+| where | ***SQL:*** <br> ``` SELECT * FROM table_name WHERE name='Tanaka'``` <br></br> ***SQL Alchemy:*** <br> ```session.query(table_name).filter_by(name='Tesla')``` |
+| in | ***SQL:*** <br> ```SELECT id, address FROM table_name WHERE name``` <br> ```IN ('Tanaka', 'Tesla')``` <br></br> ***SQLAlchemy:*** <br> ```db.select([table_name.columns.id,``` <br> ```table_name.columns.address]).where (table_name.columns.``` <br> ```name.in_(['Tanaka', 'Tesla']))``` |
+| And, Or, Not | ***SQL:*** <br> ```SELECT * FROM table_name WHERE state =``` <br> ```'California' AND NOT sex="M"``` <br></br> ***SQL Alchemy:*** <br> ```db.select([table_name]).where(db.and_(table_name.columns.state``` <br> ```== 'California', company.columns.sex != "M"))``` |
+| Order By | ***SQL:*** <br> ```SELECT * FROM table_name ORDER BY name,``` <br> ```DESC, salary``` <br></br> ***SQLAlchemy:*** <br> ```db.select([table_name]).order_by(db.desc(table_name.columns.name),``` <br> ```table_name.columns.salary)``` |
+| functions | ***SQL:*** <br> ```SELECT SUM(salary) FROM table_name``` <br></br> ***SQLAlchemy:*** <br> ```db.select([db.func.sum(table_name.columns.salary)])``` | 
+| Group By | ***SQL:*** <br> ```SELECT SUM(salary) as salary, sex FROM table_name``` <br></br> ***SQLAlchemy:*** <br> ```db.select([db.func.sum(table_name.columns.salary).label``` <br> ```('salary'),``` <br> ```table_name.columns.sex]).group_by(table_name.columns.sex)``` |
+| distinct | ***SQL:*** <br> ```SELECT DISTINCT state FROM table_name``` <br></br> ***SQLAlchemy:*** <br> ```db.select([table_name.columns.state.distinct()])``` |
+| Automatic Join | ```query = db.select([table_name.columns.name,``` <br> ```state.columns.name]).where(table_name.columns.``` <br> ```state_id == state.columns.id)``` <br></br> ```result = connection.execute(query).fetchall()``` |
+| Manual Join | ```query = db.select([table_name, state])``` <br> ```query = query.select_from(table_name.join(state,``` <br> ```table_name.columns.state_id ==``` <br> ```state.columns.id))``` <br></br> ```result = connection.execute(query).fetchall()``` |
+| insert | ```query = db.insert(state)``` <br> ```values_list = [``` <br> ```{'id': '4', 'name': 'Limpopo', 'population': 800},``` <br> ```{'id': '5', 'name': 'Gauteng', 'population': 1500},``` <br> ```]``` <br> ```ResultProxy = connection.execute(query, values_list)``` |
+| update | ```query = db.update(state).values(population=100000)``` <br> ```query = query.where(state.columns.name == 'Cape Town')``` <br></br> ```results = connection.execute(query)``` |
+| delete | ```query = db.delete(table_name)``` <br> ```query = query.where(table_name.columns.salary < 1500)``` <br> ```results = connection.execute(query)``` |
+| Geom Object | ```query = db.insert(lake)``` <br> ```values_list=[``` <br> ```{'id': '1', 'name': 'Tanganyika', 'geom': 'POLYGON'((1``` <br> ```0,3 0,3 2, 1 2, 1 0))'},``` <br> ```{'id': '2', 'name': 'Baikal', 'geom': 'POLYGON'((3 0, 6 0, 6``` <br> ```3,3 3,3 0))'},``` <br> ```]``` <br> ```ResultProxy = connection.execute(query, values_list)``` |
+| Spatial Query | ```db.select([db.func.ST_Contains(lake.columns.geom.``` <br> ```'POINT(4 1)')])``` |
 
 
 
