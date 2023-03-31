@@ -794,6 +794,39 @@ And now with the smaller minimum and maximum amplitudes, we get closer to the de
 | ------------------------------------------------------------------------------------ |
 | ![Picture](pics/image_18.png) |
 
+
+
+# Week 11
+
+## Mergin and Input [Mergin Maps Mobile App]
+
+### Field Survey with QGIS
+
+| Platform | Description |
+| -------- | ----------- |
+| Mergin | A cloud service that allows for storage, adminstration, and synchronization of GeoData <br> It is used to share projects with others |
+| Mergin Maps Mobile App | A mobile field data collection solution <br> A mobile version of QGIS develoved by Lutra Consulting Inc |
+
+### Notes 
+
+- Data stored in Mergin can be managed from Mergin Website, Input App, or in QGIS using the Mergin Plugin
+- With the QGIS plugin, one can create, delete, and synchronize projects and data to local storage
+- One can track and store Geodata using Mergin Maps Mobile App
+
+### Task : Collect Data from Local Parks
+
+- The _data_ has to include *paths*, *trees*, and *infrastructure*
+- _Remember_ : *Points go above Lines and Lines go above Polygons*
+
+***Workflow***
+
+1. prepare the project
+2. load background layers
+3. set out forms and apply styles
+4. set map themes
+5. transfer the **project data** to the *Mergin Cloud Services*
+6. Download Mergin Maps Mobile App and synchronization of the **project data** back to *Mergin Cloud Services*
+
                      
 # Glossary
 
