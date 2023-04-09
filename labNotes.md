@@ -669,8 +669,6 @@ Boolean | To store simple true/false values
 
 ### How To Make Sketchy Trees in QGIS
 
-
-
 This article focuses on the symbology of a point layer. The goal is to make the tree point layer look like it has been sketched. This is done using Geometry Generator, SVGs and wave_randomised or triangular_wave_randomised. Only QGIS 3.28.0 or other recent versions can be used for these styles.
 
 Topics Covered:
@@ -681,118 +679,231 @@ Topics Covered:
 - Draw Effects
 - Geometry generators
 
-| **Output:** |
-| ----------- |
-| ![Picture](pics/sketchy_tree.png) |
+```
+**Output:**
+```
+![App Screenshot](pics/sketchy_tree.png)
 
-| **Step:** | Image |
-| ---------- | ------ |
-| Create a point layer with a ‘crown_radi’ column in QGIS, using EPSG: 4326. <br> New shapefile layer > input file name > select Point for Geometry Type > specify EPSG > Add new field ‘crown_radi’ > OK. If this is created in PostgreSQL, the column can be named ‘crown_radius_m’ (the more detailed, the better but shapefile column naming is character restricted in QGIS, therefore, ‘crown_radi’ is fine). | ![Picture](pics/image15.png) |
-| Add a few random points and populate the columns. | ![Picture](pics/radom_point.png) |
-| Under ‘Layer Styling’, select Single Symbol. Click on ‘Simple Marker and Select ‘Geometry Generator’ for ‘Symbol layer type’ and ‘Polygon/MultiPolygon’ for ‘Geometry type’. | ![Picture](pics/simple_marker.png) |
-| To create a buffer that depends on the crown radius value, input the following in the expression: <br> buffer($geometry, “crown_radi”) - 🡪 Quotation marks (“ “) must be used to refer to columns. | ![Picture](pics/buffer.png) |
+**Steps:**
 
-| **Tool explained:** |
-| ------------------- |
-| ![Picture](pics/image13.png) |
+1. Create a point layer with a ‘crown_radius_m’ column in QGIS, using EPSG: 4326. 
+New Geopackage &rarr; Create a new database or select an existing one &rarr; select Point for Geometry Type &rarr; specify EPSG &rarr; Add new field ‘crown_radius_m’ &rarr; OK. 
 
-Parameters with square brackets are parameters that optional.
-However, the user must input geometry and distance for the buffer (in this case, it is given by the crown radius value so the distance for the buffer differs per feature). If you are going to input values for segments, cap, join and miter_limit, you can just input values while emitting the titles but they must then be in the same order as shown in the documentation. However, if the order is not applied rigidly or only some parameters need to be changed, provide the names of the parameters, for example:
-Buffer($geometry, “crown_radi”, cap:=’square’)
 
-| **Output:** |
-| ----------- |
-| ![Picture](pics/buffer_output.png) |
+![App Screenshot](pics/image15.png)
 
-| **Output of changing the segments:** | Image |
-| ------------------------------------ | ------ |
-| Segments = 1 | ![Picture](pics/image28.png) |
-| Segments = 2 | ![Picture](pics/image27.png) |
-| Segments:= 8 | ![Picture](pics/image22.png) |
+2. Add a few random points and populate the columns.  
+
+![App Screenshot](pics/radom_point.png)
+
+3. Under ‘Layer Styling’, select Single Symbol.
+Click on ‘Simple Marker’ and Select ‘Geometry Generator’ for ‘Symbol layer type’ and ‘Polygon/MultiPolygon’ for ‘Geometry type’.
+
+![App Screenshot](pics/simple_marker.png)
+
+4. To create a buffer that depends on the crown radius value, input the following in the expression:
+```buffer($geometry, “crown_radius_m”)``` 🡪 Quotation marks (“”) must be used to refer to columns.
+
+![App Screenshot](pics/buffer.png)
+
+Buffer Tool explained:
+
+![App Screenshot](pics/buffer_explained.png)
+
+Parameters with square brackets are optional parameters.
+However, the user must input geometry and distance for the buffer (in this case, it is given by the crown radius value so the distance for the buffer differs per feature). If you are going to input values for ***segments***, ***cap***, ***join*** and ***miter_limit***, you can just input values while emitting the titles but they must then be in the same order as shown in the documentation. However, if the order is not applied rigidly or only some parameters need to be changed, provide the names of the parameters, for example:
+```buffer($geometry, “crown_radius_m”, cap:=’square’)```
+
+
+Output:
+
+![App Screenshot](pics/buffer_output.png)
+
+The output of changing the segments (Note the syntax: ‘segments:=1’):
+
+Segments = 1 
+
+![App Screenshot](pics/segments_1.png)
+
+Segments = 2 
+
+![App Screenshot](pics/segments_2.png)
+
+Segments:= 8
+
+![App Screenshot](pics/segment_8.png)
 
 Therefore, increasting the segments increases the smoothness of the buffer.  
 
-| **Step** | Image |
-| -------- | ----- |
-| Creating the wave effect around the points <br> Method 1: Using triangular_wave_randomized <br> Experimenting with the parameters of the tool. | ![Picture](pics/image1.png) |
+5. Creating the wave effect around the points
 
-For the geometry parameter, we input the buffer function since the triangulated waves are created on the buffer created on the point. 
-triangular_wave_randomized( buffer($geometry, "crown_radi"), 1,1,1,1,1). 
-Inputting the value 1 for all the compulsory parameters is expected to create triangles around the buffer of equal shape and length (besides the starting and ending point) because that means only wavelength of 1 (since the randomly generated number is between minimum of 1 and maximum of 1, which is 1, and amplitude of 1 is selected. Therefore, this is like using triangulated_wave(buffer($geometry, “crown_radi”), 1, 1) instead, since this does not create the triangulated waves based on selecting a value at random from an interval). 
+***Method 1: Using triangular_wave_randomized experimenting with the parameters of the tool***
 
-| Output: |
-| ------- |
-| ![Picture](pics/image29.png) |
+![App Screenshot](pics/image1.png)
+
+For the geometry parameter, we input the buffer function since the triangulated waves are created on the buffer created on a point:
+
+```triangular_wave_randomized( buffer($geometry, "crown_radius_m"), 1,1,1,1,1)```
+
+Inputing the value 1 for all the compulsory parameters is expected to create triangles around the buffer of equal shape and length (besides the starting and ending point) because that means only wavelength of 1 (since the randomly generated number is between minimum of 1 and maximum of 1, which is 1, and amplitude of 1 is selected. Therefore, this is like using ```triangulated_wave(buffer($geometry, “crown_radius_m”), 1, 1)``` instead, since this does not create the triangulated waves based on selecting a value at random from an interval).
+
+Output:
+
+![App Screenshot](pics/image29.png)
 
 Increasing the range between the minimum and maximum wavelengths increases the chances of having wider angles between your triangles then increasing the range of amplitudes increases how deeply the triangles can penetrate into the buffer:
 
- Wavelength of 5           |  Amplitude of 5
+| Wavelength of 5 | Amplitude of 5 |
 :-------------------------:|:-------------------------:
-![Picture](pics/image9.png)  | ![Picture](pics/image18.png)
+| ![App Screenshot](pics/image9.png)  | ![App Screenshot](pics/image18.png) |
 
-Method 2: Using wave_randomized. 
+After trying out different values for wavelengths and amplitude, the following implementation is done:
+ ```triangular_wave_randomized( buffer($geometry, "crown_radius_m"), 2, 5, 0.1, 0.5)```
 
-| **Step** | Image |
-| -------- | ----- |
-| Follow the steps in Method 1 above to create a new Point shapefile layer. <br> Click on the pencil in the Digitizing Toolbar or Right-click on your created layer and Toggle Editing to be able to digitise new points. | ![Picture](pics/image31.png) |
-| Digitise a few well-spaced random points and populate the ‘id’ and ‘crown_radi’ columns. | |
-| Follow Steps 3 & 4 above to change the Symbol Layer Type and Geometry Type and create a buffer that depends on the crown radius value [from the ‘crown_radi’ column]. | ![Picture](pics/image10.png) |
-| We can then apply the wave randomised function to the buffer. It takes in the 6 arguments that are outlined in the image below. We start with all arguments excluding the geometry equal to 1 (initial conditions) and investigate the effect of each argument on the output by keeping all others at 1. | ![Picture](pics/image25.png) |
+Output:   
 
-| Initial output: |
-| --------------- |
-| ![Picture](pics/image16.png) |
+![App Screenshot](pics/out_put_smoth.png)
 
-First, we look at the minimum wavelength of waves. It ranges from 0 to 1. The lowest minimum wavelength yields more “petals” to our flower looking shape. This is because the wavelengths are shortened due to a lower possible minimum. This then fits more waves as the minimum wavelength number approaches zero.  
+For the final touch, the ‘smooth’ tool will be used. The triangular ends of the polygon are too defined and not irregular enough to suit the ‘sketchy’ design that is intended. The iterations will be based on the id of the tree features.
 
-| | |
-| ------- | ---------------------------------- |
-| Min=0.1 | ![Picture](pics/min1.png) |
-| Min=0.5 | ![Picture](pics/image7.png) |
+![App Screenshot](pics/function%20smooth.png)
+
+```smooth (triangular_wave_randomized( buffer($geometry, "crown_radius_m"),2, 5,0.1, 0.15,20), @id)```
+
+![App Screenshot](pics/t_wave_ran.png)
+
+***Method 2: Using wave_randomized***
+
+1. We can then apply the wave randomised function to the buffer. It takes in the 6 arguments that are outlined in the image below. We start with all arguments excluding the geometry equal to 1 (initial conditions) and investigate the effect of each argument on the output by keeping all others at 1.
+
+![App Screenshot](pics/image25.png)
+
+Initial Output: 
+
+![App Screenshot](pics/image16.png)
+
+First, we look at the minimum wavelength of waves which ranges from 0 to 1. The lowest minimum wavelength yields more “petals” to our flower looking shape. This is because the wavelengths are shortened due to a lower possible minimum. This then fits more waves as the minimum wavelength number approaches zero.
+
+Min=0.1 
+
+![App Screenshot](pics/min1.png)
+
+Min=0.5 
+
+![App Screenshot](pics/image7.png)
 
 Now, we look at the maximum wavelength of waves which ranges from the minimum wavelength to positive infinity.
 Larger maximum wavelengths create more irregular looking shapes due to the greater variation in the wavelengths and thus shapes of the waves created around the buffer boundary of the point. This does not quite apply to the two below where min. wavelength = max. wavelength.
 
-| **Min** 'n' **Max** | **Image** |
-| ------------------- | --------- |
-| Min = 0.1, Max = 0.1 | ![Picture](pics/min_max_1.png) |
-| Min = 0.5, Max = 0.5 | ![Picture](pics/min_max_5.png) |
-| Min = 0.1, Max = 4 | ![Picture](pics/min_max_4.png) |
-| Min = 0.1, Max = 8 | ![Picture](pics/min_max_8.png) |
+Min = 0.1, Max = 0.1 
+
+![App Screenshot](pics/min_max_1.png)
+
+Min = 0.5, Max = 0.5 
+
+![App Screenshot](pics/min_max_5.png)
+
+Min = 0.1, Max = 4
+
+![App Screenshot](pics/min_max_4.png)
+
+Min = 0.1, Max = 8
+
+![App Screenshot](pics/min_max_8.png)
 
 Now, we investigate the minimum and maximum amplitudes of the random waves created.  
 
-| With minimum and maximum wavelengths kept at 1, <br> Minimum amplitude = 0.1, Maximum amplitude = 1: |
-| ---------------------------------------------------------------------------------------------------- |
-| ![Picture](pics/min_max_amp_1.png) |
+With minimum and maximum wavelengths kept at 1,  
+Minimum amplitude = 0.1, Maximum amplitude = 1:
+
+![App Screenshot](pics/min_max_amp_1.png)
 
 We immediately observe that the wave amplitude affects the distance that the “petals” on the circumference can approach the centre of the point (the centroid). 
 
-| Minimum amplitude = 0.1, Maximum amplitude = 0.3: |
-| ------------------------------------------------- |
-| ![Picture](pics/min_max_amp_3.png) |
+Minimum amplitude = 0.1, Maximum amplitude = 0.3:
+
+![App Screenshot](pics/min_max_amp_3.png)
 
 And now with the smaller minimum and maximum amplitudes, we get closer to the desired sketchy shape.  
 
-| **Step** | Image |
-| -------- | ----- |
-| We can now duplicate the Marker | ![Picture](pics/image8.png) |
-| Make the first Marker’s Geometry Generator fill colour Transparent | ![Picture](pics/image14.png) |
-| Then click on the green plus sign to Add Symbol Layer. Once added, change the Symbol Layer Type to ‘Outline: Simple Line’ and match the Stroke Widths. Playing around with the stroke widths yields different sketchy outputs. | ![Picture](pics/add_symbol.png) |
-| You can also continue to duplicate the Geometry Generator layers with different seed values to create more sketch lines. | ![Picture](pics/dup.png) |
-| Once the outlines look sketchy, we can change the Symbol Layer Type to Gradient Fill. <br> This shows a simple Gradient Fill from the top to the bottom of the symbol. | ![Picture](pics/symbol_layer_type.png) |
-| The reference point 1 tells us where the light of the gradient should originate. The box below shows the top-left represents (x,y) = (0,0) and the bottom-right is (1,1). As such your gradient direction is determined by the (x,y) values in the first and second reference points. | ![Picture](pics/xy.png) |
-| Creating the centroid marker. | ![Picture](pics/centroid_marker.png) |
-| This can be done on Inkscape. Once you have created your own svg in Inkscape, save it.  You can then use your Marker in QGIS under ‘Symbology’ of the third layer of your style, select ‘SVG marker’ and then choose the marker you created in Inkscape This embeds the svg on top of the tree layer. | ![Picture](pics/image_17.png) |
-| Adding Leafy Texture. | ![Picture](pics/image_21.png) |
+1. We can now duplicate the Marker 
+![App Screenshot](pics/image8.png)
 
-| NB: Trees have leaves, so they must be given a leafy texture |
-| ------------------------------------------------------------ |
-| ![Picture](pics/image_19.png) |
+1. Make the first Marker’s Geometry Generator fill colour Transparent.
+![App Screenshot](pics/image14.png)
 
-| Finally the sketchy trees will have a leafy texture with small ‘svg’ markers on top: |
-| ------------------------------------------------------------------------------------ |
-| ![Picture](pics/image_18.png) |
+Then click on the green plus sign to Add Symbol Layer. Once added, change the Symbol Layer Type to ‘Outline: Simple Line’ and match the Stroke Widths. Playing around with the stroke widths yields different sketchy outputs.
+
+![App Screenshot](pics/add_symbol.png)
+
+You can also continue to duplicate the Geometry Generator layers with different seed values to create more sketch lines.
+
+![App Screenshot](pics/dup.png)
+
+8. Once the outlines look sketchy, we can change the Symbol Layer Type to Gradient Fill.
+This shows a simple Gradient Fill from the top to the bottom of the symbol.
+
+![App Screenshot](pics/symbol_layer_type.png)
+
+The reference point 1 tells us where the light of the gradient should originate. The box below shows the top-left represents (x,y) = (0,0) and the bottom-right is (1,1). As such your gradient direction is determined by the (x,y) values in the first and second reference points.
+
+![App Screenshot](pics/xy.png)
+
+Creating the centroid marker.
+
+![App Screenshot](pics/centroid_marker.png)
+
+This can be done on Inkscape. Once you have created your own svg in Inkscape, save it.  You can then use your Marker in QGIS under ‘Symbology’ of the third layer of your style, select ‘SVG marker’ and then choose the marker you created in Inkscape This embeds the svg on top of the tree layer.
+
+![App Screenshot](pics/image_17.png)
+
+Adding Leafy Texture.
+
+![App Screenshot](pics/image_21.png)
+
+NB: Trees have leaves, so they must be given a leafy texture
+
+![App Screenshot](pics/image_19.png)
+
+Finally the sketchy trees will have a leafy texture with small ‘svg’ markers on top:
+
+![App Screenshot](pics/image_18.png)
+
+10. Radius Feature 
+Now we will add the line going from the centre of the point to the circumference of the feature.
+  1. Duplicate a feature layer and move to the top then change the Geometry Type to ‘LineString/MultiString’.
+
+  ![App Screenshot](pics/image_lend.png)
+  2. To generate the squiggly line, we will use two new functions: ‘with_variable’ and ‘make_line’.
+
+  ![App Screenshot](pics/function_make_line.png)
+
+  In the expression field, input:
+  ```with_variable('poly',buffer($geometry, "crown_radius_m"), 		 smooth(triangular_wave_randomized( make_line( centroid(@poly), start_point(@poly)), 2, 5, 0.1, 0.15, 20), 10))```
+
+  3. Duplicate the layer created in step 2, and input: 
+  ```with_variable('poly',buffer($geometry, "crown_radius_m"), smooth(triangular_wave_randomized( make_line( centroid(@poly), start_point(@poly)),  2, 4, 0.1, 0.15, 20), 10))``` 
+
+  4. Now that you have sketched a squiggly line from radius to circumference, we need to add an arrow on each end. This is done by duplicating the layer from Steps 2 or 3 and changing the Symbol Layer Type to ‘Marker Line’.  Under the Marker Line Properties, make sure ‘On First vertex’ is ticked and untick ‘Rotate marker’ to follow line direction. Change the size to 6 millimetres.
+
+  On the ‘Simple Marker’ layer, scroll to the bottom and select the icon below. Additionally, change the rotation property to 180 degrees,
+
+  5. Duplicate the layer created in step 4 but change the selection from ‘On First vertex’ to ‘On last vertex’ and keep the rotation on 0 degrees 
+
+  ![App Screenshot](pics/dup_layer.png)
+
+Label Feature
+
+Now that we have a squiggly line with two arrows and a sketchy tree designed, the only thing missing is the label. Similar to the rest of the design, we also want this to look hand-written.
+
+1. Right click on layer > Properties > Label > Single Labels > Set Value to ‘concat(“crown_radius_m”, ‘ m’). This is to show the unit for the radius without having to input ‘m’ in the data record because we need this layer to remain in decimal data type. Therefore, concat combines the numeric value of the radius and adds the suffix ‘m’ to it.
+
+![App Screenshot](pics/func_concat.png)
+
+2. Select Bradley Hand ITC for font.
+3. Go to Placement &rarr; Change Mode to ‘Offset from Point’ and select the central position.
+
+After all the steps, you should have a symbology that looks hand-sketched, showing a hand-sketched top-view of a tree, a hand-sketched arrow from the centre to circumference and handwritten crown measurement with a unit.
 
 
 
@@ -832,6 +943,10 @@ And now with the smaller minimum and maximum amplitudes, we get closer to the de
 
 ## Rob Ross Challenge 
 
+### Tips on Creating Cool Artwork in QGIS
+  
+[Tips on making Art in QGIS with Eli](https://www.youtube.com/watch?v=gmHBJeLLB84&t=17s 'Tips on making Art in QGIS with Eli')
+
 ### Bob Ross - Evening's Peace (Season 19 Episode 12)
 
 [Bob Ross - Evening's Peace](https://www.youtube.com/watch?v=uEUMVwc4o5U&t=5s 'Season 19 Episode 12')
@@ -847,7 +962,7 @@ And now with the smaller minimum and maximum amplitudes, we get closer to the de
 | Shrubs Addition | ![Shrubs Addition](/pics/Shrubs%20Addition.png "Shrubs Addition") |
 | Cabin Addition | ![Cabin Addition](/pics/Cabin%20Addition.png "Cabin Addition") |
 | House Addition | ![House Addition](/pics/House%20Addition.png "House Addition") |
-| Finale Output | ![House Addition](/pics/Bob%20Ross%20-%20Evening's%20Peace%20(Season%2019%20Episode%2012).png "Bob Ross - Evening's Peace (Season 19 Episode 12)") | 
+| Finale Sketch | ![House Addition](/pics/Bob%20Ross%20-%20Evening's%20Peace%20(Season%2019%20Episode%2012).png "Bob Ross - Evening's Peace (Season 19 Episode 12)") | 
 
 
 
