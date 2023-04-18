@@ -967,9 +967,38 @@ After all the steps, you should have a symbology that looks hand-sketched, showi
 
 # Week 13
 
-##
+## Geo SQL Alchemy
 
-###
+### Python Session (5) with Zakki
+
+[Python Lesson Five](https://www.youtube.com/watch?v=phLatOUJB1c&t=1275s 'Python Lesson Five by Zakki')
+
+### SQL Toolkit, ORM
+
+| syntax | sqlalchemy refresh |
+| ------------------ | ----------- |
+| ```session.query(Company.id, Company.address).filter(Company.name).in_(['Zakki', 'Amy']).all()``` | ? |
+| ```session.query(Company).order_by(Company.name.desc(), Company.salary)``` | ? |
+| ```session.query(db.func.sum(Company.salary).label('Salary'), Company.sex).group_by(Company.sex).all()``` | ? |
+
+
+| Goal | How To Do It? |
+| ---- | ------------- |
+| ORM Table Modelling | ```from sqlalchemy.ext.declarative import declarative_base``` <br> ```Base=declarative_base()``` <br></br> ```class State(Base):``` <br> ```__table__ = Table('state', Base.metadata, autoload=True, autoload_with=engine)``` <br></br> ```def__repr__(self):``` <br> ```return self.name``` |
+| A Table Modelled as A Python Class | ```class Student(Base):``` <br> ```__tablename__ = 'student'``` <br> ```id=Column(Integer, primary_key=True)``` <br> ```name=Column(String(50))``` <br> ```age=Column(Integer)``` <br> ```grade=Column(String(50))``` |
+| Database Connection and Table Creation | ```from sqlalchemy import create_engine, Column, Integer, String, ForeignKey``` <br> ```from sqlalchemy.orm import sessionmaker``` <br> ```from sqlalchemy.ext.declarative import declarative_base``` <br></br> ```engine=create_engine('postgresql://postgres:password@localhost:5432/database_name', echo=False)``` <br></br> ```Session = sessionmaker(bind=engine)``` <br></br> ```session=Session()``` <br></br> ```Base = sqlalchemy.orm.declarative_base()``` <br><br> ```Base.metadata.create_all(engine)``` |
+
+
+| Object Relational Mapping | Notes |
+| ------------------------ | ----- |
+| Object Relational Mapping Operations | Talking to SQL Databases from one's Python Programme <br></br> -> Read =>> Write -> Update =>> Delete |
+| Steps in Table Creation | Create Engine <br> Create Session <br> Create Table <br> Migrate |
+| Steps in Data Insertion | Create Instance of Table Class <br> Add Data to Session <br> Commit Changes to Database |
+| Steps to Query Table | Get all Data <br> Get Data in Order <br> Get Data by Filtering <br> Count of Results |
+| Steps to Get Record | Change Value <br> Commit Change |
+| Steps to Erase Data in Table | Get Record <br> Delete Record <br> Commit Change |
+
+
 
 
 
