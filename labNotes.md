@@ -992,9 +992,10 @@ After all the steps, you should have a symbology that looks hand-sketched, showi
 | Get Data In Order | ```students = session.query(Student).order_by(Student.name)``` <br> ```print(student.name, student.age, student.grade)``` |
 | Get Data By Filter | ```student=session.query(Student).filter(student.name == "Jerin").first()``` <br> ```print(student.name, student.age, student.grade)``` <br></br> ```students=session.query(Student).filter(or_(Student.name=='Jerin', Student.name=="Anita"))``` <br> ```for student in students:``` <br> ```print(student.name, student.age, student.grade)``` |
 | Count Number of Records | ```student_count=session.query(Student).filter(or_(Student.name=='Jerin', Student.name=="Anita")).count()``` <br> ```print(student_count)``` |
-| 
+| Update Table Data | ```student=session.query(Student).filter(Student.name=='Tanaka').first()``` <br> ```student.name="Tesla"``` <br> ```session.commit()``` |
+| Delete Data | ```student=session.query(Student).filter(Student.name=='Tesla').first()``` <br> ```session.delete(student)``` <br> ```session.commit()``` | 
 
-
+  
 | Object Relational Mapping | Notes |
 | ------------------------ | ----- |
 | Object Relational Mapping Operations | Talking to SQL Databases from one's Python Programme <br></br> -> Read =>> Write -> Update =>> Delete |
