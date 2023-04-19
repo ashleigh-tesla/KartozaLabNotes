@@ -1006,11 +1006,13 @@ After all the steps, you should have a symbology that looks hand-sketched, showi
 | Steps to Erase Data in Table | Get Record <br> Delete Record <br> Commit Change |
 
 
+# Week 14
 
+## 
+
+### 
 
 
 # Glossary
-
-
 
 [Glossary of Key Terms](glossaryOfKeyTerms.md 'Definition of Key Terminology')  
