@@ -987,6 +987,12 @@ After all the steps, you should have a symbology that looks hand-sketched, showi
 | ORM Table Modelling | ```from sqlalchemy.ext.declarative import declarative_base``` <br> ```Base=declarative_base()``` <br></br> ```class State(Base):``` <br> ```__table__ = Table('state', Base.metadata, autoload=True, autoload_with=engine)``` <br></br> ```def__repr__(self):``` <br> ```return self.name``` |
 | A Table Modelled as A Python Class | ```class Student(Base):``` <br> ```__tablename__ = 'student'``` <br> ```id=Column(Integer, primary_key=True)``` <br> ```name=Column(String(50))``` <br> ```age=Column(Integer)``` <br> ```grade=Column(String(50))``` |
 | Database Connection and Table Creation | ```from sqlalchemy import create_engine, Column, Integer, String, ForeignKey``` <br> ```from sqlalchemy.orm import sessionmaker``` <br> ```from sqlalchemy.ext.declarative import declarative_base``` <br></br> ```engine=create_engine('postgresql://postgres:password@localhost:5432/database_name', echo=False)``` <br></br> ```Session = sessionmaker(bind=engine)``` <br></br> ```session=Session()``` <br></br> ```Base = sqlalchemy.orm.declarative_base()``` <br><br> ```Base.metadata.create_all(engine)``` |
+| Insert Data | ```student1=Student(name="Ashleigh", age=23, grade="Fifth")``` <br> ```session.add(student1)``` <br> ```session.commit()``` <br></br> ```student2=Student(name='Aaron', age=25, grade='Sixth')``` <br> ```student3=Student(name='Ashton', age=26, grade='Seventh')``` <br> ```session.add_all([student2, student3])``` <br> ```session.commit()``` |
+| Get All Data | ```students=session.query(Student)``` <br> ```for student in students``` <br> ```print(student.name, student.age, student.grade)``` | 
+| Get Data In Order | ```students = session.query(Student).order_by(Student.name)``` <br> ```print(student.name, student.age, student.grade)``` |
+| Get Data By Filter | ```student=session.query(Student).filter(student.name == "Jerin").first()``` <br> ```print(student.name, student.age, student.grade)``` <br></br> ```students=session.query(Student).filter(or_(Student.name=='Jerin', Student.name=="Anita"))``` <br> ```for student in students:``` <br> ```print(student.name, student.age, student.grade)``` |
+| Count Number of Records | ```student_count=session.query(Student).filter(or_(Student.name=='Jerin', Student.name=="Anita")).count()``` <br> ```print(student_count)``` |
+| 
 
 
 | Object Relational Mapping | Notes |
