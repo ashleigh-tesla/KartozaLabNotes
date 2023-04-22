@@ -1036,9 +1036,19 @@ After all the steps, you should have a symbology that looks hand-sketched, showi
 
 Traditional Layout Atlas Variables vs Report Atlas Variables
 
-| Traditional Layout Atlas Variables | Report Atlas Variables |
+| Layout Atlas Variables | Report Atlas Variables |
 | ---------------------------------- | ---------------------- |
-| 
+| ```amplitude_max``` | ```amplitude_max``` |
+| ```amplitude_min``` | ```amplitude_min``` |
+| ```atlas_feature``` | ```atlas_feature``` |
+| ```atlas_featureid``` | ```atlas_featureid``` |
+| ```atlas_geometry``` | ```atlas_geometry``` |
+| ```atlas_layerid``` | ```atlas_layerid``` |
+| ```atlas_layername``` | ```atlas_layername``` |
+| ```atlas_featurenumber``` | ```item_id``` |
+| ```atlas_pagename``` | ```item_uuid``` |
+| ```atlas_filename``` | |
+| ```atlas_totalfeatures``` | |
 
 To obtain the 'missing ones', you need to calculate them with expressions etc.
 
